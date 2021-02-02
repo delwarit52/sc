@@ -178,11 +178,14 @@
                         </li>
                         <li>
                             <a href="javascript: void(0);">
-                                <i class="fi-air-play"></i><span class="badge badge-success pull-right">2</span> <span> Manage By Admin </span>
+                                <i class="fi-air-play"></i>
+                                <span> Manage By Admin </span>
+                                <span class="menu-arrow"></span>
                             </a>
                             <ul class="nav-second-level" aria-expanded=false>
                                 <li><a href="{{ route('admin.category') }}">Category</a></li>
                                 <li><a href="{{ route('admin.subcategory') }}">Subcategory</a></li>
+                                <li><a href="{{ route('admin.division') }}">Division</a></li>
                             </ul>
                         </li>
                         <li>
