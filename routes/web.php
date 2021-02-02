@@ -1,11 +1,14 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\Admin\DivisionController;
-use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DistrictController;
+use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\SubcategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,3 +57,10 @@ Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('admin
 Route::post('/create/subcategory', [SubcategoryController::class, 'create'])->name('create.subcategory');
 Route::post('/update/subcategory/{subcategory}', [SubcategoryController::class, 'update'])->name('update.subcategory');
 Route::get('/delete/subcategory/{subcategory}', [SubcategoryController::class, 'delete'])->name('delete.subcategory');
+
+
+// Brand
+Route::get('/brand', [BrandController::class, 'index'])->name('admin.brand');
+Route::post('/create/brand', [BrandController::class, 'create'])->name('create.brand');
+Route::post('/update/brand/{brand}', [BrandController::class, 'update'])->name('update.brand');
+Route::get('/delete/brand/{brand}', [BrandController::class, 'delete'])->name('delete.brand');

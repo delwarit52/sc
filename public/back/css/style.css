@@ -1183,7 +1183,7 @@ a:focus {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   vertical-align: middle;
-  z-index: 99999;
+  z-index: 9;
   will-change: opacity, transform;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -6037,7 +6037,7 @@ header.header_area .top_bar_right ul li .top_btn:hover {
 
 .sm_header_area {
   position: absolute;
-  width: 100%;
+  width: 70%;
   z-index: 9999;
   background-color: transparent;
   padding: 8px 0px 0px 24px;
