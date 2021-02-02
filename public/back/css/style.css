@@ -1919,6 +1919,9 @@ a:focus {
 /* =============
    Modals
 ============= */
+.modal{
+  z-index: 99999999999999999999;
+}
 .modal .modal-dialog .close {
   top: -18px;
   position: absolute;
@@ -6037,10 +6040,10 @@ header.header_area .top_bar_right ul li .top_btn:hover {
 
 .sm_header_area {
   position: absolute;
-  width: 70%;
+  width: 60%;
   z-index: 9999;
   background-color: transparent;
-  padding: 8px 0px 0px 24px;
+  margin: 8px 0px 0px 60px;
 }
 
 .sm_header_area .top_mid_menu ul {

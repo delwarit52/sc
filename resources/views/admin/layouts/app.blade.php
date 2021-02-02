@@ -186,6 +186,7 @@
                                 <li><a href="{{ route('admin.category') }}">Category</a></li>
                                 <li><a href="{{ route('admin.subcategory') }}">Subcategory</a></li>
                                 <li><a href="{{ route('admin.division') }}">Division</a></li>
+                                <li><a href="{{ route('admin.brand') }}">Brand</a></li>
                             </ul>
                         </li>
                         <li>
