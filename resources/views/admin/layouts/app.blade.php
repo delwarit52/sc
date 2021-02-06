@@ -14,11 +14,24 @@
 
     <!-- C3 charts css -->
     <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
     
     <!--=== Fontawesome icon ===-->
     <link rel="stylesheet" href="{{ asset('back/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('back/css/all.min.css') }}">
     
+=======
+
+    <!-- App css -->
+    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
+
+>>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
     <!-- DataTables css -->
 
     <link href="{{ ('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
@@ -29,6 +42,7 @@
     <!-- Sweet Alert -->
     <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 
+<<<<<<< HEAD
     <!-- App css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
@@ -37,6 +51,19 @@
     <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
     <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
+=======
+    {{-- Multi-select --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+    {{-- Upload file --}}
+    
+        <!-- Jquery filer css -->
+        <link href="{{ asset('back/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet" />
+        <link href="{{ asset('back/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}" rel="stylesheet" />
+
+        <!-- Bootstrap fileupload css -->
+        <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" />
+
+>>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
 
 </head>
 
@@ -192,6 +219,16 @@
                                 <li><a href="{{ route('admin.subcategory') }}">Subcategory</a></li>
                                 <li><a href="{{ route('admin.division') }}">Division</a></li>
                                 <li><a href="{{ route('admin.brand') }}">Brand</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-air-play"></i>
+                                <span> Shop </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded=false>
+                                <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
                             </ul>
                         </li>
                         <li>
@@ -370,6 +407,8 @@
     <script src="{{ asset('back') }}/{{ 'js/metisMenu.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/waves.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/jquery.slimscroll.js' }}"></script>
+    <script src="{{ asset('back') }}/{{ 'js/toastr.min.js' }}"></script>
+    <script src="{{ asset('back') }}/{{ 'js/toastr.js' }}"></script>
 
     <!-- Counter js  -->
     <script src="{{ asset('back') }}/{{ 'plugins/waypoints/jquery.waypoints.min.js' }}"></script>
@@ -409,6 +448,18 @@
         {{-- Sweet Alert --}}
         <script src="{{asset('back/js/sweetalert.min.js')}}"></script>
 
+        {{-- Multi select --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+
+
+        <!-- Jquery filer js -->
+        <script src="{{ asset('back/plugins/jquery.filer/js/jquery.filer.min.js') }}"></script>
+
+
+        <!-- Bootstrap fileupload js -->
+        <script src="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.js') }}"></script>
+        <!-- page specific js -->
+        <script src="{{ asset('back/pages/jquery.fileuploads.init.js') }}"></script>
         
         <script type="text/javascript">
             $(document).ready(function() {
@@ -449,6 +500,29 @@
         </script>
 
         {{-- end data table script --}}
+
+        {{-- Toastr js --}}
+        <!-- Toastr -->
+{{-- toastr js --}}
+    <script>
+        @if(Session::has('messege'))
+            var type="{{Session::get('alert-type','info')}}"
+            switch(type){
+                case 'info':
+                     toastr.info("{{ Session::get('messege') }}");
+                     break;
+                case 'success':
+                    toastr.success("{{ Session::get('messege') }}");
+                    break;
+                case 'warning':
+                    toastr.warning("{{ Session::get('messege') }}");
+                    break;
+                case 'error':
+                    toastr.error("{{ Session::get('messege') }}");
+                    break;
+            }
+          @endif
+    </script>
 
         
 

@@ -8,6 +8,11 @@ use App\Models\Location\Division;
 
 class DivisionController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+	}
+	
     public function index()
     {
         $divisions = Division::latest()->get();
