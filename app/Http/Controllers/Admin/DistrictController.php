@@ -9,6 +9,11 @@ use App\Models\Location\District;
 
 class DistrictController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $divisions = Division::latest()->get();
