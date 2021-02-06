@@ -9,6 +9,10 @@ use App\Models\Admin\Category;
 
 class SubcategoryController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $subcategories = Subcategory::latest()->get();
@@ -97,7 +101,6 @@ class SubcategoryController extends Controller
     	}
 	}
 	
-	
     private function storeUpdateImage($subcategory)
     {
         if(request()->has('image')){
@@ -107,10 +110,8 @@ class SubcategoryController extends Controller
             $subcategory->update([
                 'image' => request()->image->store('admin/subcategory','public'),
             ]);
-
             // $resize = Image::make('storage/app/public/'.$subcategory->image)->resize(300,300);
             // $resize->save();
         }
     }
-
 }

@@ -8,14 +8,19 @@ use App\Models\Admin\Category;
 
 
 class CategoryController extends Controller
-{
+{    
+	public function __construct()
+    {
+        $this->middleware('auth');
+	}
+	
     public function index()
     {
         $categories = Category::latest()->get();
         $count = 1;
         return view('admin.category.category',compact('categories','count'));
-    }
-
+	}
+	
     
     public function create()
     {

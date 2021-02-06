@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 	//Example 1
     $("#filer_input1").filer({
-        limit: null,
+        limit: 6,
         maxSize: null,
         extensions: null,
         changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag & Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span></div><a class="jFiler-input-choose-btn btn btn-custom waves-effect waves-light">Browse Files</a></div></div>',
@@ -112,18 +112,6 @@ $(document).ready(function(){
             onComplete: null
         },
 		files: [
-			{
-				name: "1.jpg",
-				size: 145,
-				type: "image/jpg",
-				file: "assets/images/small/img-1.jpg"
-			},
-			{
-				name: "2.jpg",
-				size: 145,
-				type: "image/jpg",
-				file: "assets/images/small/img-2.jpg"
-			}
 		],
         addMore: false,
         clipBoardPaste: true,
