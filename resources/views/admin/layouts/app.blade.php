@@ -14,15 +14,11 @@
 
     <!-- C3 charts css -->
     <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
-
-    <!-- App css -->
-    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
-
-    <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
-
+    
+    <!--=== Fontawesome icon ===-->
+    <link rel="stylesheet" href="{{ asset('back/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('back/css/all.min.css') }}">
+    
     <!-- DataTables css -->
 
     <link href="{{ ('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
@@ -32,6 +28,15 @@
     
     <!-- Sweet Alert -->
     <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- App css -->
+    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" />
+
+    <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
 
 </head>
 
@@ -226,18 +231,132 @@
             <!-- Start content -->
             <div class="content">
                 <div class="container-fluid">
-
                     <!-- end row -->
                     @yield('content')
                 </div>
                     <!-- end row -->
                 </div> <!-- container -->
             </div> <!-- content -->
-            <footer class="footer text-right">
-                2021 © Smat City For Life
-            </footer>
         </div>
+            <!-- FOOTER AREA START -->
 
+            <section class="sm_footer_area sm_section_padding" style="background-image: url('{{ asset('back/images/smartcityslide_3.jpg') }}');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 px-3 px-lg-3 px-md-0">
+                            <div class="fotter_ctn wow fadeInLeft">
+                                <div class="footer_logo">
+                                    <h4><a href="#"><img src="{{ asset('back/images/logo-1.png') }}" alt="logo"></a></h4>
+                                </div>
+                                <div class="footer_links contact_link">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-phone-alt"></i> (+0214)0 315 215</a></li>
+                                        <li><a href=""><i class="fas fa-envelope-open-text"></i> help_sylcart@gmail.com</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer_links social_media">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="far fa-envelope"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="apps_download">
+                                    <ul>
+                                        <li><a href="#" class="payment_1"><img src="{{ asset('back/images/app-store.png') }}" alt="apps"></a></li>
+                                        <li><a href="#" class="payment_2"><img src="{{ asset('back/images/play-store-logo.png') }}" alt="apps"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12">
+                            <div class="fotter_ctn wow fadeInUp">
+                                <div class="footer_titel">
+                                    <h4>Our services</h4>
+                                </div>
+                                <div class="footer_links">
+                                    <ul>
+                                        <li><a href="#">Smart home</a></li>
+                                        <li><a href="#">Education</a></li>
+                                        <li><a href="#">Hospital</a></li>
+                                        <li><a href="#">Hotel</a></li>
+                                        <li><a href="#">shopping</a></li>
+                                        <li><a href="#">Restaurant</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12">
+                            <div class="fotter_ctn wow fadeInUp">
+                                <div class="footer_titel">
+                                    <h4>useful links</h4>
+                                </div>
+                                <div class="footer_links">
+                                    <ul>
+                                        <li><a href="index.html">home</a></li>
+                                        <li><a href="">blog</a></li>
+                                        <li><a href="">F.A.Q.</a></li>
+                                        <li><a href="#">about us</a></li>
+                                        <li><a href="">contact us</a></li>
+                                        <li><a href="">castomer care</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="fotter_ctn wow fadeInRight">
+                                <div class="footer_titel">
+                                    <h4>News Feeds</h4>
+                                </div>
+                                <div class="footer_news">
+                                    <div class="single-news">
+                                        <div class="news-img">
+                                            <a href="#"><img src="{{ asset('back/images/br1.jpg') }}" alt=""></a>
+                                        </div>
+                                        <div class="news-text">
+                                            <span class="date"><i class="far fa-calendar-alt"></i>24th November 2020</span>
+                                            <a href="#">Lorem ipsum dolor sit amet ipsum</a>
+                                        </div>
+                                    </div>
+                                    <div class="single-news">
+                                        <div class="news-img">
+                                            <a href="#"><img src="{{ asset('back/images/br1.jpg') }}" alt=""></a>
+                                        </div>
+                                        <div class="news-text">
+                                            <span class="date"><i class="far fa-calendar-alt"></i>24th November 2020</span>
+                                            <a href="#">Lorem ipsum dolor sit amet ipsum</a>
+                                        </div>
+                                    </div>
+                                    <div class="single-news mb-0">
+                                        <div class="news-img">
+                                            <a href="#"><img src="{{ asset('back/images/br1.jpg') }}" alt=""></a>
+                                        </div>
+                                        <div class="news-text">
+                                            <span class="date"><i class="far fa-calendar-alt"></i>24th November 2020</span>
+                                            <a href="#">Lorem ipsum dolor sit amet ipsum</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===  Copyright Area start ===-->
+            <section>
+                <div class="sm_copyright_area">
+                    <div class="container">
+                        <div class="copyright text-center">
+                            <p>&copy; Copyright Reserved. <a href="#"> 2021 Smart City.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--===  Copyright Area End ===-->
+
+            <!-- FOOTER AREA END -->
         <!-- ============================================================== -->
         <!-- End Right content here -->
         <!-- ============================================================== -->
