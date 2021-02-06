@@ -42,7 +42,7 @@ File: Components
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 999; }
+  z-index: 999999999999999; }
   .topbar .topbar-left {
     background: #3E0478;
     float: left;
@@ -413,14 +413,6 @@ body.enlarged.bg-transparent {
     background-color: #ffffff !important; }
 
 /* Footer */
-.footer {
-  border-top: 1px solid rgba(152, 166, 173, 0.2);
-  bottom: 0;
-  text-align: left !important;
-  padding: 19px 30px 20px;
-  position: absolute;
-  right: 0;
-  left: 240px; }
 
 /* Notification */
 .notification-list {
@@ -502,7 +494,6 @@ body.enlarged.bg-transparent {
 ============= */
 body {
   margin: 0;
-  padding-bottom: 60px;
   overflow-x: hidden;
   color: #797979;
   font-size: 14px;
@@ -1183,7 +1174,7 @@ a:focus {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   vertical-align: middle;
-  z-index: 99999;
+  z-index: 9;
   will-change: opacity, transform;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -1919,6 +1910,9 @@ a:focus {
 /* =============
    Modals
 ============= */
+.modal{
+  z-index: 99999999999999999999;
+}
 .modal .modal-dialog .close {
   top: -18px;
   position: absolute;
@@ -6037,10 +6031,10 @@ header.header_area .top_bar_right ul li .top_btn:hover {
 
 .sm_header_area {
   position: absolute;
-  width: 100%;
+  width: 60%;
   z-index: 9999;
   background-color: transparent;
-  padding: 8px 0px 0px 24px;
+  margin: 8px 0px 0px 60px;
 }
 
 .sm_header_area .top_mid_menu ul {

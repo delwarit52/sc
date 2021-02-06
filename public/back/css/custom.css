@@ -1,0 +1,219 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: none;
+}
+/* Start Dashboard Footer  */
+.sm_section_padding {
+  padding: 80px 0;
+}
+
+.sm_section_padding_3 {
+  padding: 40px 0 80px;
+}
+
+.sm_footer_area {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  width: 90%;
+  z-index: 3;
+  position: relative;
+  margin-left: 240px;
+}
+
+.sm_footer_area::before {
+  content: "";
+  position: absolute;
+  background-color: #3E0478;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: .8;
+}
+
+.sm_footer_area .fotter_ctn .footer_logo {
+  margin-bottom: 30px;
+}
+
+.sm_footer_area .fotter_ctn .payment_methods {
+  margin-top: 20px;
+}
+
+.sm_footer_area .fotter_ctn .payment_methods ul li {
+  margin-right: 2px;
+}
+
+.sm_footer_area .fotter_ctn .payment_methods ul li:last-child {
+  margin-right: 0;
+}
+
+.sm_footer_area .fotter_ctn .payment_methods ul li a img {
+  width: 60px;
+}
+
+.sm_footer_area .fotter_ctn .apps_download ul li a img {
+  width: 122px;
+}
+
+.sm_footer_area .fotter_ctn .footer_titel h4 {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 21px;
+  text-transform: capitalize;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.sm_footer_area .fotter_ctn .contact_link {
+  margin-bottom: 20px;
+}
+
+.sm_footer_area .fotter_ctn .contact_link ul li a {
+  text-transform: lowercase !important;
+}
+
+.sm_footer_area .fotter_ctn .contact_link ul li a i {
+  color: #2B6CB0;
+  font-size: 16px;
+  margin-right: 5px;
+  line-height: 1.7;
+}
+
+.sm_footer_area .fotter_ctn .social_media ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.sm_footer_area .fotter_ctn .social_media ul li {
+  margin-right: 14px;
+}
+
+.sm_footer_area .fotter_ctn .social_media ul li a i {
+  font-size: 18px;
+  padding: 10px 10px;
+  color: #2B6CB0;
+  background-color: #ffffff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  line-height: 18px;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.sm_footer_area .fotter_ctn .social_media ul li a:hover i {
+  background-color: #2B6CB0;
+  color: #ffffff;
+}
+
+.sm_footer_area .fotter_ctn .footer_links ul li {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sm_footer_area .fotter_ctn .footer_links ul li a {
+  color: #ffffff;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 30px;
+  text-decoration: none;
+}
+
+.sm_footer_area .fotter_ctn .footer_links ul li a:hover {
+  color: #2B6CB0;
+}
+
+.sm_footer_area .fotter_ctn .footer_news {
+  position: relative;
+}
+
+.sm_footer_area .fotter_ctn .footer_news .single-news {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.sm_footer_area .fotter_ctn .footer_news .single-news .news-img {
+  float: left;
+  margin-right: 10px;
+}
+
+.sm_footer_area .fotter_ctn .footer_news .single-news .news-text .date {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.sm_footer_area .fotter_ctn .footer_news .single-news .news-text .date i {
+  color: #2B6CB0;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.sm_footer_area .fotter_ctn .footer_news .single-news .news-text a {
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0;
+  text-decoration: none;
+}
+
+.copyright_area {
+  background: #191F2B;
+  padding: 6px 0;
+  border-top: 2px solid #000102;
+}
+
+.copyright_area .copyright p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+.copyright_area .copyright p a {
+  color: #fff;
+}
+
+.sm_copyright_area {
+  background: #3E0478;
+  padding: 20px 0;
+  z-index: 3;
+  width: 90%;
+  margin-left: 240px;
+}
+
+.sm_copyright_area .copyright p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+.sm_copyright_area .copyright p a {
+  color: #fff;
+}
+/* End Dashboard Footer  */
