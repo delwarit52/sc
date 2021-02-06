@@ -8,11 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\SubcategoryController;
-<<<<<<< HEAD
-
-=======
 use App\Http\Controllers\ShopAdmin\ShopController;
->>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,4 +80,3 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::get('/delete/subcategory/{subcategory}', [SubcategoryController::class, 'delete'])->name('delete.subcategory');
 
 });
->>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
