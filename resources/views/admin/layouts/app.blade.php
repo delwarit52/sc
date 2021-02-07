@@ -14,13 +14,11 @@
 
     <!-- C3 charts css -->
     <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
     
     <!--=== Fontawesome icon ===-->
     <link rel="stylesheet" href="{{ asset('back/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('back/css/all.min.css') }}">
     
-=======
 
     <!-- App css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -31,7 +29,6 @@
 
     <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
 
->>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
     <!-- DataTables css -->
 
     <link href="{{ ('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
@@ -42,7 +39,6 @@
     <!-- Sweet Alert -->
     <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 
-<<<<<<< HEAD
     <!-- App css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
@@ -51,7 +47,6 @@
     <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
     <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
-=======
     {{-- Multi-select --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
     {{-- Upload file --}}
@@ -63,7 +58,6 @@
         <!-- Bootstrap fileupload css -->
         <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" />
 
->>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
 
 </head>
 
