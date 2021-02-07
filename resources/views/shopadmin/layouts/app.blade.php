@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Adminox - Responsive Web App Kit</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Bootstrap fileupload css -->
-    <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" type="text/css" />
-
-    <!-- C3 charts css -->
-    <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
-
-    <!-- App css -->
-    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
-
-    <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
-
-    <!-- DataTables css -->
-    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- Responsive datatable examples -->
-    <link href="{{ asset('back/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <head>
+        <meta charset="utf-8" />
+        <title>Adminox - Responsive Web App Kit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
-    <!-- Sweet Alert -->
-    <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+    
+        <!-- Bootstrap fileupload css -->
+        <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" type="text/css" />
+    
+        <!-- C3 charts css -->
+        <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
+    
+        <!-- App css -->
+        <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
+    
+        <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
+    
+        <!-- DataTables css -->
+        <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{{ asset('back/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        
+        <!-- Sweet Alert -->
+        <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 
-</head>
+        {{-- Select2 CDN --}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
+
+        <!-- Jquery filer css -->
+        <link href="{{ asset('back/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet" />
+        <link href="{{ asset('back/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}" rel="stylesheet" />
+
+    
+    </head>
 
 
 <body>
@@ -177,18 +189,17 @@
                     <ul class="metismenu" id="side-menu">
                         <li class="menu-title">Navigation</li>
                         <li>
-                            <a href="{{ route('dashboard') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
+                            <a href="{{ route('shopadmin') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
                         </li>
                         <li>
                             <a href="javascript: void(0);">
                                 <i class="fi-air-play"></i>
-                                <span> Manage By Admin </span>
+                                <span> Product </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="nav-second-level" aria-expanded=false>
-                                <li><a href="{{ route('admin.category') }}">Category</a></li>
-                                <li><a href="{{ route('admin.subcategory') }}">Subcategory</a></li>
-                                <li><a href="{{ route('admin.division') }}">Division</a></li>
+                                <li><a href="{{ route('product.add') }}">Add Product</a></li>
+                                <li><a href="{{ route('product.productlist') }}">Product List</a></li>
                             </ul>
                         </li>
                         <li>
@@ -246,7 +257,7 @@
     </div>
     <!-- END wrapper -->
 
-    <!-- jQuery  -->
+    {{-- jQuery --}}
     <script src="{{ asset('back') }}/{{ 'js/jquery.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/tether.min.js' }}"></script><!-- Tether for Bootstrap -->
     <script src="{{ asset('back') }}/{{ 'js/bootstrap.min.js' }}"></script>
@@ -272,8 +283,6 @@
     <script src="{{ asset('back') }}/{{ 'js/jquery.core.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/jquery.app.js' }}"></script>
 
-
-
     <!-- Jquery filer js -->
     <script src="{{ asset('back') }}/{{ 'plugins/jquery.filer/js/jquery.filer.min.js' }}"></script>
 
@@ -281,6 +290,35 @@
     <script src="{{ asset('back') }}/{{ 'plugins/bootstrap-fileupload/bootstrap-fileupload.js' }}"></script>
     <!-- page specific js -->
     <script src="{{ asset('back') }}/{{ 'pages/jquery.fileuploads.init.js' }}"></script>
+
+    <!--Wysiwig js-->
+    <script src="{{ asset('back') }}/{{ 'plugins/tinymce/tinymce.min.js' }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if($("#elm1").length > 0){
+                tinymce.init({
+                    selector: "textarea#elm1",
+                    theme: "modern",
+                    height:300,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "save table contextmenu directionality emoticons template paste textcolor"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                    style_formats: [
+                        {title: 'Bold text', inline: 'b'},
+                        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+                        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+                        {title: 'Example 1', inline: 'span', classes: 'example1'},
+                        {title: 'Example 2', inline: 'span', classes: 'example2'},
+                        {title: 'Table styles'},
+                        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                    ]
+                });
+            }
+        });
+    </script>
 
     
 
@@ -345,7 +383,6 @@
         </script>
 
         {{-- end data table script --}}
-
         
 
 </body>
