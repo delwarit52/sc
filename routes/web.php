@@ -57,6 +57,7 @@ Route::get('/shop', [ShopController::class, 'shop'])->name('shopadmin.shop');
 Route::get('/shop/create/', [ShopController::class, 'shopCreate'])->name('shopadmin.shop.create');
 Route::post('/shop/store/', [ShopController::class, 'shopStore'])->name('shopadmin.shop.store');
 
+<<<<<<< HEAD
 
 // Subcategory
 Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('admin.subcategory');
@@ -64,13 +65,18 @@ Route::post('/create/subcategory', [SubcategoryController::class, 'create'])->na
 Route::post('/update/subcategory/{subcategory}', [SubcategoryController::class, 'update'])->name('update.subcategory');
 Route::get('/delete/subcategory/{subcategory}', [SubcategoryController::class, 'delete'])->name('delete.subcategory');
 
+=======
+>>>>>>> 2afca7c696dcb02b48beed221cb5faf15d3bd961
 
 // Brand
 Route::get('/brand', [BrandController::class, 'index'])->name('admin.brand');
 Route::post('/create/brand', [BrandController::class, 'create'])->name('create.brand');
 Route::post('/update/brand/{brand}', [BrandController::class, 'update'])->name('update.brand');
 Route::get('/delete/brand/{brand}', [BrandController::class, 'delete'])->name('delete.brand');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2afca7c696dcb02b48beed221cb5faf15d3bd961
 //Admin Panel Route
 Route::middleware(['auth','admin'])->group(function(){
     
