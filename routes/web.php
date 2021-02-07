@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\SubcategoryController;
+
 use App\Http\Controllers\ShopAdmin\ShopController;
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +57,7 @@ Route::get('/shop', [ShopController::class, 'shop'])->name('shopadmin.shop');
 Route::get('/shop/create/', [ShopController::class, 'shopCreate'])->name('shopadmin.shop.create');
 Route::post('/shop/store/', [ShopController::class, 'shopStore'])->name('shopadmin.shop.store');
 
-<<<<<<< HEAD
+
 // Subcategory
 Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('admin.subcategory');
 Route::post('/create/subcategory', [SubcategoryController::class, 'create'])->name('create.subcategory');
@@ -69,7 +70,7 @@ Route::get('/brand', [BrandController::class, 'index'])->name('admin.brand');
 Route::post('/create/brand', [BrandController::class, 'create'])->name('create.brand');
 Route::post('/update/brand/{brand}', [BrandController::class, 'update'])->name('update.brand');
 Route::get('/delete/brand/{brand}', [BrandController::class, 'delete'])->name('delete.brand');
-=======
+
 //Admin Panel Route
 Route::middleware(['auth','admin'])->group(function(){
     
