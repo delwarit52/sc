@@ -30,7 +30,6 @@
 
     <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
 
-
     <!-- DataTables css -->
 
     <link href="{{ ('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
@@ -41,7 +40,6 @@
     <!-- Sweet Alert -->
     <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 
-
     <!-- App css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
@@ -50,8 +48,7 @@
     <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
     <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
-
- 
+    {{-- Multi-select --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
 
     
