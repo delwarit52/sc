@@ -1,70 +1,54 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Adminox - Responsive Web App Kit</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-    <!-- Bootstrap fileupload css -->
-    <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" type="text/css" />
-
-    <!-- C3 charts css -->
-    <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
-
+    <head>
+        <meta charset="utf-8" />
+        <title>Adminox - Responsive Web App Kit</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
-    <!--=== Fontawesome icon ===-->
-    <link rel="stylesheet" href="{{ asset('back/css/fontawesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('back/css/all.min.css') }}">
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
     
-
-    <!-- App css -->
-    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/toastr.min.css') }}" rel="stylesheet" type="text/css" />
-
-    <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
-
-    <!-- DataTables css -->
-    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- Responsive datatable examples -->
-    <link href="{{ asset('back/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Bootstrap fileupload css -->
+        <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" type="text/css" />
     
-    <!-- Sweet Alert -->
-    <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
-
-    <!-- App css -->
-    <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" />
-
-    <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
-    {{-- Multi-select --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
-
+        <!-- C3 charts css -->
+        <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
     
+        <!-- App css -->
+        <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
+    
+        <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
+    
+        <!-- DataTables css -->
+        <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('back/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{{ asset('back/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        
+        <!-- Sweet Alert -->
+        <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
+
+        {{-- Select2 CDN --}}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+
+
         <!-- Jquery filer css -->
         <link href="{{ asset('back/plugins/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet" />
         <link href="{{ asset('back/plugins/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}" rel="stylesheet" />
 
-        <!-- Bootstrap fileupload css -->
-        <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" />
-
-
-
-</head>
+    
+    </head>
 
 
 <body>
@@ -205,29 +189,17 @@
                     <ul class="metismenu" id="side-menu">
                         <li class="menu-title">Navigation</li>
                         <li>
-                            <a href="{{ route('dashboard') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
+                            <a href="{{ route('shopadmin') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
                         </li>
                         <li>
                             <a href="javascript: void(0);">
                                 <i class="fi-air-play"></i>
-                                <span> Manage By Admin </span>
+                                <span> Product </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="nav-second-level" aria-expanded=false>
-                                <li><a href="{{ route('admin.category') }}">Category</a></li>
-                                <li><a href="{{ route('admin.subcategory') }}">Subcategory</a></li>
-                                <li><a href="{{ route('admin.division') }}">Division</a></li>
-                                <li><a href="{{ route('admin.brand') }}">Brand</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);">
-                                <i class="fi-air-play"></i>
-                                <span> Shop </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="nav-second-level" aria-expanded=false>
-                                <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
+                                <li><a href="{{ route('product.add') }}">Add Product</a></li>
+                                <li><a href="{{ route('product.productlist') }}">Product List</a></li>
                             </ul>
                         </li>
                         <li>
@@ -267,147 +239,31 @@
             <!-- Start content -->
             <div class="content">
                 <div class="container-fluid">
+
                     <!-- end row -->
                     @yield('content')
                 </div>
                     <!-- end row -->
                 </div> <!-- container -->
             </div> <!-- content -->
+            <footer class="footer text-right">
+                2021 © Smat City For Life
+            </footer>
         </div>
-            <!-- FOOTER AREA START -->
 
-            <section class="sm_footer_area sm_section_padding" style="background-image: url('{{ asset('back/images/smartcityslide_3.jpg') }}');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 px-3 px-lg-3 px-md-0">
-                            <div class="fotter_ctn wow fadeInLeft">
-                                <div class="footer_logo">
-                                    <h4><a href="#"><img src="{{ asset('back/images/logo-1.png') }}" alt="logo"></a></h4>
-                                </div>
-                                <div class="footer_links contact_link">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-phone-alt"></i> (+0214)0 315 215</a></li>
-                                        <li><a href=""><i class="fas fa-envelope-open-text"></i> help_sylcart@gmail.com</a></li>
-                                    </ul>
-                                </div>
-                                <div class="footer_links social_media">
-                                    <ul>
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="far fa-envelope"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="apps_download">
-                                    <ul>
-                                        <li><a href="#" class="payment_1"><img src="{{ asset('back/images/app-store.png') }}" alt="apps"></a></li>
-                                        <li><a href="#" class="payment_2"><img src="{{ asset('back/images/play-store-logo.png') }}" alt="apps"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12">
-                            <div class="fotter_ctn wow fadeInUp">
-                                <div class="footer_titel">
-                                    <h4>Our services</h4>
-                                </div>
-                                <div class="footer_links">
-                                    <ul>
-                                        <li><a href="#">Smart home</a></li>
-                                        <li><a href="#">Education</a></li>
-                                        <li><a href="#">Hospital</a></li>
-                                        <li><a href="#">Hotel</a></li>
-                                        <li><a href="#">shopping</a></li>
-                                        <li><a href="#">Restaurant</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-12">
-                            <div class="fotter_ctn wow fadeInUp">
-                                <div class="footer_titel">
-                                    <h4>useful links</h4>
-                                </div>
-                                <div class="footer_links">
-                                    <ul>
-                                        <li><a href="index.html">home</a></li>
-                                        <li><a href="">blog</a></li>
-                                        <li><a href="">F.A.Q.</a></li>
-                                        <li><a href="#">about us</a></li>
-                                        <li><a href="">contact us</a></li>
-                                        <li><a href="">castomer care</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="fotter_ctn wow fadeInRight">
-                                <div class="footer_titel">
-                                    <h4>News Feeds</h4>
-                                </div>
-                                <div class="footer_news">
-                                    <div class="single-news">
-                                        <div class="news-img">
-                                            <a href="#"><img src="{{ asset('back/images/br1.jpg') }}" alt=""></a>
-                                        </div>
-                                        <div class="news-text">
-                                            <span class="date"><i class="far fa-calendar-alt"></i>24th November 2020</span>
-                                            <a href="#">Lorem ipsum dolor sit amet ipsum</a>
-                                        </div>
-                                    </div>
-                                    <div class="single-news">
-                                        <div class="news-img">
-                                            <a href="#"><img src="{{ asset('back/images/br1.jpg') }}" alt=""></a>
-                                        </div>
-                                        <div class="news-text">
-                                            <span class="date"><i class="far fa-calendar-alt"></i>24th November 2020</span>
-                                            <a href="#">Lorem ipsum dolor sit amet ipsum</a>
-                                        </div>
-                                    </div>
-                                    <div class="single-news mb-0">
-                                        <div class="news-img">
-                                            <a href="#"><img src="{{ asset('back/images/br1.jpg') }}" alt=""></a>
-                                        </div>
-                                        <div class="news-text">
-                                            <span class="date"><i class="far fa-calendar-alt"></i>24th November 2020</span>
-                                            <a href="#">Lorem ipsum dolor sit amet ipsum</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--===  Copyright Area start ===-->
-            <section>
-                <div class="sm_copyright_area">
-                    <div class="container">
-                        <div class="copyright text-center">
-                            <p>&copy; Copyright Reserved. <a href="#"> 2021 Smart City.</a></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--===  Copyright Area End ===-->
-
-            <!-- FOOTER AREA END -->
         <!-- ============================================================== -->
         <!-- End Right content here -->
         <!-- ============================================================== -->
     </div>
     <!-- END wrapper -->
 
-    <!-- jQuery  -->
+    {{-- jQuery --}}
     <script src="{{ asset('back') }}/{{ 'js/jquery.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/tether.min.js' }}"></script><!-- Tether for Bootstrap -->
     <script src="{{ asset('back') }}/{{ 'js/bootstrap.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/metisMenu.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/waves.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/jquery.slimscroll.js' }}"></script>
-    <script src="{{ asset('back') }}/{{ 'js/toastr.min.js' }}"></script>
-    <script src="{{ asset('back') }}/{{ 'js/toastr.js' }}"></script>
 
     <!-- Counter js  -->
     <script src="{{ asset('back') }}/{{ 'plugins/waypoints/jquery.waypoints.min.js' }}"></script>
@@ -427,8 +283,6 @@
     <script src="{{ asset('back') }}/{{ 'js/jquery.core.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/jquery.app.js' }}"></script>
 
-
-
     <!-- Jquery filer js -->
     <script src="{{ asset('back') }}/{{ 'plugins/jquery.filer/js/jquery.filer.min.js' }}"></script>
 
@@ -436,6 +290,35 @@
     <script src="{{ asset('back') }}/{{ 'plugins/bootstrap-fileupload/bootstrap-fileupload.js' }}"></script>
     <!-- page specific js -->
     <script src="{{ asset('back') }}/{{ 'pages/jquery.fileuploads.init.js' }}"></script>
+
+    <!--Wysiwig js-->
+    <script src="{{ asset('back') }}/{{ 'plugins/tinymce/tinymce.min.js' }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if($("#elm1").length > 0){
+                tinymce.init({
+                    selector: "textarea#elm1",
+                    theme: "modern",
+                    height:300,
+                    plugins: [
+                        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+                        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+                        "save table contextmenu directionality emoticons template paste textcolor"
+                    ],
+                    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                    style_formats: [
+                        {title: 'Bold text', inline: 'b'},
+                        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+                        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+                        {title: 'Example 1', inline: 'span', classes: 'example1'},
+                        {title: 'Example 2', inline: 'span', classes: 'example2'},
+                        {title: 'Table styles'},
+                        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+                    ]
+                });
+            }
+        });
+    </script>
 
     
 
@@ -457,20 +340,9 @@
         <!-- Responsive examples -->
         <script src="{{ asset('back/plugins/datatables/dataTables.responsive.min.js') }}"></script>
         <script src="{{ asset('back/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
-       
+        {{-- Sweet Alert --}}
         <script src="{{asset('back/js/sweetalert.min.js')}}"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
-
-
-        <!-- Jquery filer js -->
-        <script src="{{ asset('back/plugins/jquery.filer/js/jquery.filer.min.js') }}"></script>
-
-
-        <!-- Bootstrap fileupload js -->
-        <script src="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.js') }}"></script>
-        <!-- page specific js -->
-        <script src="{{ asset('back/pages/jquery.fileuploads.init.js') }}"></script>
         
         <script type="text/javascript">
             $(document).ready(function() {
@@ -510,31 +382,7 @@
 
         </script>
 
-    
-
-  
-        <!-- Toastr -->
-
-    <script>
-        @if(Session::has('messege'))
-            var type="{{Session::get('alert-type','info')}}"
-            switch(type){
-                case 'info':
-                     toastr.info("{{ Session::get('messege') }}");
-                     break;
-                case 'success':
-                    toastr.success("{{ Session::get('messege') }}");
-                    break;
-                case 'warning':
-                    toastr.warning("{{ Session::get('messege') }}");
-                    break;
-                case 'error':
-                    toastr.error("{{ Session::get('messege') }}");
-                    break;
-            }
-          @endif
-    </script>
-
+        {{-- end data table script --}}
         
 
 </body>

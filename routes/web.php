@@ -8,8 +8,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\SubcategoryController;
-
 use App\Http\Controllers\ShopAdmin\ShopController;
+use App\Http\Controllers\ShopAdmin\ProductController;
+use App\Http\Controllers\ShopAdmin\ProductMoreDetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,21 +67,19 @@ Route::post('/update/subcategory/{subcategory}', [SubcategoryController::class, 
 Route::get('/delete/subcategory/{subcategory}', [SubcategoryController::class, 'delete'])->name('delete.subcategory');
 
 
+// ShopAdmin
+Route::get('/shopadmin', [App\Http\Controllers\HomeController::class, 'shopadmin'])->name('shopadmin');
 
-// Brand
-Route::get('/brand', [BrandController::class, 'index'])->name('admin.brand');
-Route::post('/create/brand', [BrandController::class, 'create'])->name('create.brand');
-Route::post('/update/brand/{brand}', [BrandController::class, 'update'])->name('update.brand');
-Route::get('/delete/brand/{brand}', [BrandController::class, 'delete'])->name('delete.brand');
+//Product
+Route::get('/addproduct', [ProductController::class, 'addindex'])->name('product.add');
+Route::post('/addproduct/create', [ProductController::class, 'createproduct'])->name('product.create');
+Route::post('/addproduct/update', [ProductController::class, 'update'])->name('product.update');
+Route::get('/addproduct/moredetails', [ProductMoreDetailsController::class, 'moredetails'])->name('product.moredetails');
+Route::post('/addproduct/moredetails/create', [ProductMoreDetailsController::class, 'createmoredetails'])->name('product.createmoredetails');
 
+Route::get('/productlist', [ProductController::class, 'productlist'])->name('product.productlist');
+Route::get('/productlist/{id}', [ProductController::class, 'productlistsingleshop'])->name('product.productlistsingleshop');
 
-//Admin Panel Route
-Route::middleware(['auth','admin'])->group(function(){
-    
-    // Subcategory
-    Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('admin.subcategory');
-    Route::post('/create/subcategory', [SubcategoryController::class, 'create'])->name('create.subcategory');
-    Route::post('/update/subcategory/{subcategory}', [SubcategoryController::class, 'update'])->name('update.subcategory');
-    Route::get('/delete/subcategory/{subcategory}', [SubcategoryController::class, 'delete'])->name('delete.subcategory');
+Route::get('/product/basicedit/{id}', [ProductController::class, 'productbasicedit'])->name('product.basicedit');
+Route::post('/product/basicedit/update/{id}', [ProductController::class, 'productbasiceditupdate'])->name('product.basicedit.update');
 
-});

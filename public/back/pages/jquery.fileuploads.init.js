@@ -42,9 +42,7 @@ $(document).ready(function(){
                                     {{fi-image}}\
                                 </div>\
                                 <div class="jFiler-item-assets jFiler-row">\
-                                    <ul class="list-inline pull-left">\
-                                        <li>{{fi-progressBar}}</li>\
-                                    </ul>\
+                                    \
                                     <ul class="list-inline pull-right">\
                                         <li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
                                     </ul>\
@@ -112,6 +110,7 @@ $(document).ready(function(){
             onComplete: null
         },
 		files: [
+			
 		],
         addMore: false,
         clipBoardPaste: true,
