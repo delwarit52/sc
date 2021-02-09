@@ -54,9 +54,19 @@ Route::post('/update/category/{category}', [CategoryController::class, 'update']
 Route::get('/delete/category/{category}', [CategoryController::class, 'delete'])->name('delete.category');
 
 //Shop Manage
-Route::get('/shop', [ShopController::class, 'shop'])->name('shopadmin.shop');
+// Route::get('Shopadmin/dashboard/', [ShopController::class, 'shopDashboard'])->name('shopadmin.dashboard');
+Route::get('/shop/list', [ShopController::class, 'shopIndex'])->name('shopadmin.shop.list');
 Route::get('/shop/create/', [ShopController::class, 'shopCreate'])->name('shopadmin.shop.create');
 Route::post('/shop/store/', [ShopController::class, 'shopStore'])->name('shopadmin.shop.store');
+Route::get('/shop/edit/{shop}', [ShopController::class, 'shopEdit'])->name('shopadmin.edit.shop');
+Route::post('/shop/update/{shop}', [ShopController::class, 'shopUpdate'])->name('shopadmin.update.shop');
+Route::get('/delete/shop/{shop}', [ShopController::class, 'delete'])->name('shopadmin.delete.shop');
+
+// Subcategory
+Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('admin.subcategory');
+Route::post('/create/subcategory', [SubcategoryController::class, 'create'])->name('create.subcategory');
+Route::post('/update/subcategory/{subcategory}', [SubcategoryController::class, 'update'])->name('update.subcategory');
+Route::get('/delete/subcategory/{subcategory}', [SubcategoryController::class, 'delete'])->name('delete.subcategory');
 
 
 

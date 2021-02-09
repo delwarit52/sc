@@ -35,6 +35,7 @@
 
     <!-- DataTables css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+
     <link href="{{ asset('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Responsive datatable examples -->
@@ -43,14 +44,17 @@
     <!-- Sweet Alert -->
     <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 
+
+
     <!-- App css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" />
+   
+
 
     <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
+
     {{-- Multi-select --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
 
@@ -61,6 +65,11 @@
 
         <!-- Bootstrap fileupload css -->
         <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" />
+
+
+        <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
+        {{-- <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" /> --}}
+        <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
 
 
 
@@ -227,6 +236,7 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="nav-second-level" aria-expanded=false>
+                                <li><a href="{{ route('shopadmin.shop.list') }}">Shop List</a></li>
                                 <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
                             </ul>
                         </li>
