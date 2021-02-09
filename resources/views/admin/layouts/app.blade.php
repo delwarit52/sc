@@ -14,13 +14,13 @@
 
     <!-- C3 charts css -->
     <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
+
     
     <!--=== Fontawesome icon ===-->
     <link rel="stylesheet" href="{{ asset('back/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('back/css/all.min.css') }}">
     
-=======
+
 
     <!-- App css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -31,27 +31,26 @@
 
     <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
 
->>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
+
     <!-- DataTables css -->
 
-    <link href="{{ ('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ ('back/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Responsive datatable examples -->
-    <link href="{{ ('back/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     
     <!-- Sweet Alert -->
     <link href="{{ asset('back/css/sweetalert/sweetalert.css') }}" rel="stylesheet" type="text/css">
 
-<<<<<<< HEAD
+
     <!-- App css -->
     <link href="{{ asset('back/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('back/css/metismenu.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" />
+   
 
-    <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
-=======
+  
+
     {{-- Multi-select --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
     {{-- Upload file --}}
@@ -63,8 +62,9 @@
         <!-- Bootstrap fileupload css -->
         <link href="{{ asset('back/plugins/bootstrap-fileupload/bootstrap-fileupload.css') }}" rel="stylesheet" />
 
->>>>>>> f279cb09c307163a341b6ce81bd7d276ec49d720
-
+        <link href="{{ asset('back/css/style.css') }}" rel="stylesheet" type="text/css" />
+        {{-- <link href="{{ asset('back/css/custom.css') }}" rel="stylesheet" type="text/css" /> --}}
+        <script src="{{ asset('back/js/modernizr.min.js') }}"></script>
 </head>
 
 
@@ -228,6 +228,7 @@
                                 <span class="menu-arrow"></span>
                             </a>
                             <ul class="nav-second-level" aria-expanded=false>
+                                <li><a href="{{ route('shopadmin.shop.list') }}">Shop List</a></li>
                                 <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
                             </ul>
                         </li>
@@ -401,9 +402,9 @@
     <!-- END wrapper -->
 
     <!-- jQuery  -->
-    <script src="{{ asset('back') }}/{{ 'js/jquery.min.j' }}s"></script>
+    <script src="{{ asset('back') }}/{{ 'js/jquery.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/tether.min.js' }}"></script><!-- Tether for Bootstrap -->
-    <script src="{{ asset('back') }}/{{ 'js/bootstrap.min.j' }}s"></script>
+    <script src="{{ asset('back') }}/{{ 'js/bootstrap.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/metisMenu.min.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/waves.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/jquery.slimscroll.js' }}"></script>
@@ -419,13 +420,13 @@
     <script type="text/javascript" src="{{ asset('back') }}/{{ 'plugins/c3/c3.min.js' }}"></script>
 
     <!--Echart Chart-->
-    <script src="{{ asset('back') }}/{{ 'plugins/echart/echarts-all.j' }}s"></script>
+    <script src="{{ asset('back') }}/{{ 'plugins/echart/echarts-all.js' }}"></script>
 
     <!-- Dashboard init -->
-    <script src="{{ asset('back') }}/{{ 'pages/jquery.dashboard.j' }}s"></script>
+    <script src="{{ asset('back') }}/{{ 'pages/jquery.dashboard.js' }}"></script>
 
     <!-- App js -->
-    <script src="{{ asset('back') }}/{{ 'js/jquery.core.j' }}s"></script>
+    <script src="{{ asset('back') }}/{{ 'js/jquery.core.js' }}"></script>
     <script src="{{ asset('back') }}/{{ 'js/jquery.app.js' }}"></script>
 
     {{-- data table scripts --}}

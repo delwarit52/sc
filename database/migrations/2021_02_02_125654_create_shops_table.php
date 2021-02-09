@@ -25,6 +25,7 @@ class CreateShopsTable extends Migration
             $table->string('offer_image');
             $table->string('floor');
             $table->string('shop_no');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
