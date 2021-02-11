@@ -41,8 +41,8 @@
                             Select A Shop
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ route('product.productlistsingleshop', ['id' => 1]) }}">Shop One</a>
-                            <a class="dropdown-item" href="{{ route('product.productlistsingleshop', ['id' => 2]) }}">Shop Two</a>
+                            {{-- <a class="dropdown-item" href="{{ route('product.productlistsingleshop', ['id' => 1]) }}">Shop One</a>
+                            <a class="dropdown-item" href="{{ route('product.productlistsingleshop', ['id' => 2]) }}">Shop Two</a> --}}
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </div>
@@ -80,13 +80,13 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('product.basicedit', ['id' => $product->id]) }}" class="btn btn-xs waves-effect waves-light btn-warning"><i class="fa fa-pencil"></i></a>
-                                        <button type="button" class="btn btn-xs waves-effect waves-light btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-info-circle"></i></button>
-                                        <button type="button" class="btn btn-xs waves-effect waves-light btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-trash"></i></button>
-                                        {{-- <!-- Large modal -->
-                                        <button type="button" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-pencil"></i></button>
-                                        <button href="{{ route('delete.product',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></button>
-                                        <!-- Small modal --> --}}
+                                        <a href="{{ route('product.edit',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-warning"><i class="fa fa-pencil"></i></a>
+                                        <a href="" class="btn btn-xs waves-effect waves-light btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-info-circle"></i></a>
+                                        <a href="{{ route('product.moredetails',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i></a>
+                                        <!-- Large modal -->
+                                        {{-- <a href="a" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-pencil"></i></a> --}}
+                                        <a href="{{ route('delete.product',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></a>
+                                        <!-- Small modal -->
                                     </td>
                                 </tr>
                             @endforeach
