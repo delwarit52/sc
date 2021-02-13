@@ -1,8 +1,6 @@
 
 @extends('shopadmin.layouts.app')
 @section('content')
-
-
             <!-- BREADCRUMB-->
             <section class="au-breadcrumb">
                 <div class="section__content section__content--p30">
@@ -34,35 +32,10 @@
             <!-- start card-box -->
             <div class="card-box">
                 <div class="p-20">
-                    <form class="form-horizontal" role="form" action="{{ route('product.detail.create') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                        <input type="hidden" value="{{ $product_id }}" name="product_id">
-                        <div class="row">
-                            <div class="col col-sm-12 col-md-12">
-                                <div class="form-group row">
-                                    <label class="col-2 col-form-label">Select Product</label>
-                                    <div class="col-10">
-                                        <select name="size" class="form-control select-size @error('size') is-invalid  @enderror">
-                                            <option disabled>Write Size and press Enter</option>
-                                            <option>Small</option>
-                                            <option>Standard</option>
-                                            <option>Large</option>
-                                            <option>Other</option>
-                                        </select>
-                                        @error('size')
-                                            <span class="invalid-feedback text-danger" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                        <script>
-                                            $(".select-size").select2({
-                                                tags:true
-                                            });
-                                        </script>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <form form action="{{ route('product.detail.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        {{-- <input type="hidden" value="{{ $product_id }}" name="product_id"> --}}
+                        <input type="hidden" value="1" name="product_id">
                         <div class="row">
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group row">
@@ -116,7 +89,7 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Quantity</label>
                                     <div class="col-10">
-                                        <input type="text" class="form-control" name="quantity" value="Enter Quantity">
+                                        <input type="number" class="form-control" name="quantity" placeholder="Enter Quantity">
                                         @error('quantity')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -179,8 +152,8 @@
 
                         <div class="row">
                             <div class="col-12 d-flex justify-content-between">
-                                <a href="{{ route('product.add') }}" class="btn btn-warning">Reset</a>
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                {{-- <a href="{{ route('product.add') }}" class="btn btn-warning">Reset</a> --}}
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
 

@@ -80,14 +80,362 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('product.edit',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-warning"><i class="fa fa-pencil"></i></a>
-                                        <a href="" class="btn btn-xs waves-effect waves-light btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-info-circle"></i></a>
-                                        <a href="{{ route('product.moredetails',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i></a>
+                                        
+                        <!-- Large modal -->
+                        {{-- <button type="button" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-pencil"></i></button> --}}
+                        {{-- <button href="{{ route('delete.category',$category->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></button> --}}
+                        <!-- Small modal -->
+                                        <button href="{{ route('product.edit',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-warning"><i class="fa fa-pencil"></i></button>
+                                        <button type="button" class="btn btn-xs waves-effect waves-light btn-secondary" data-toggle="modal" data-target=".bs-example-modal-lg1"><i class="fa fa-info-circle"></i></button>
+                                        <button type="button" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i></button>
                                         <!-- Large modal -->
                                         {{-- <a href="a" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-pencil"></i></a> --}}
-                                        <a href="{{ route('delete.product',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></a>
+                                        <button href="{{ route('delete.product',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></button>
                                         <!-- Small modal -->
                                     </td>
+                                    
+                    
+                    <!--  Modal content for the above example -->
+                    <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            SL no.
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            Size
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            Color
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            Quantity
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            Unit
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            Action
+                                        </div>
+                                    </div>
+                                    @foreach($productdetails as $productdetail)
+                                    <div class="row">
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            1
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            {{ $productdetail->color }}
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            Quantity
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                            Unit
+                                        </div>
+                                        <div class="col-md-2" style="border:1px solid lightgray">
+                                
+                                    <button type="button" class="btn btn-xs waves-effect waves-light btn-info" data-toggle="modal" data-target=".bs-example-modal-lg2"><i class="fa fa-info-circle"></i></button>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    
+                    <!--  Modal content for the above example -->
+                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" role="form" action="{{ route('product.detail.store') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                            <div class="row">
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Select Size</label>
+                                                        <div class="col-10">
+                                                            <select name="size" class="form-control select-size @error('size') is-invalid  @enderror">
+                                                                <option disabled>Write Size and press Enter</option>
+                                                                <option>Small</option>
+                                                                <option>Standard</option>
+                                                                <option>Large</option>
+                                                                <option>Other</option>
+                                                            </select>
+                                                            @error('size')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <script>
+                                                                $(".select-size").select2({
+                                                                    tags:true
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Select Color</label>
+                                                        <div class="col-10">
+                                                            <select class="form-control select-color @error('color') is-invalid  @enderror" name="color">
+                                                                <option disabled>Write a color name and press Enter</option>
+                                                                <option>Red</option>
+                                                                <option>Green</option>
+                                                                <option>Yellow</option>
+                                                                <option>Other</option>
+                                                            </select>
+                                                            @error('color')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <script>
+                                                                $(".select-color").select2({
+                                                                    tags:true
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Quantity</label>
+                                                        <div class="col-10">
+                                                            <input type="text" class="form-control @error('quantity') is-invalid  @enderror" name="quantity" placeholder="Enter Quantity">
+                                                            @error('quantity')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Select Unit</label>
+                                                        <div class="col-10">
+                                                            <select class="form-control select-unit @error('unit') is-invalid  @enderror" name="unit">
+                                                                <option disabled>Write unit and press Enter</option>
+                                                                <option>Pices</option>
+                                                                <option>Kg</option>
+                                                                <option>Metter</option>
+                                                            </select>
+                                                            @error('unit')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <script>
+                                                                $(".select-unit").select2({
+                                                                    tags:true
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            {{-- Multiple File Upload --}}
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label class="col-2 col-form-label" for="example-image_front">image_front</label>
+                                                    <input type="file" id="example-image_front" name="image_front" class="form-control @error('image_front') is-invalid  @enderror" placeholder="Shop image_front file" onchange="Image_front(this)" required>
+                                                    @error('image_front')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                    
+                                                    <img class="ml-5" src="" alt="" id="image_front">
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="col-2 col-form-label" for="example-image_back">image_back</label>
+                                                    <input type="file" id="example-image_back" name="image_back" class="form-control @error('image_back') is-invalid  @enderror" placeholder="Shop image_back file" onchange="Image_back(this)" required>
+                                                    @error('image_back')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                    
+                                                    <img class="ml-5" src="" alt="" id="image_back">
+                                                </div>
+                                            </div>
+                                            <!-- end row -->
+                    
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-between">
+                                                    <a href="{{ route('product.add') }}" class="btn btn-warning">Reset</a>
+                                                    <button type="submit" class="btn btn-primary">Add</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                    
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
+                    
+                    <!--  Modal content for the above example -->
+                    <div class="modal fade bs-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" role="form" action="{{ route('product.detail.store') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <input type="hidden" value="{{ $product->id }}" name="product_id">
+                                            <div class="row">
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Select Size</label>
+                                                        <div class="col-10">
+                                                            <select name="size" class="form-control select-size @error('size') is-invalid  @enderror">
+                                                                <option disabled>Write Size and press Enter</option>
+                                                                <option>Small</option>
+                                                                <option>Standard</option>
+                                                                <option>Large</option>
+                                                                <option>Other</option>
+                                                            </select>
+                                                            @error('size')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <script>
+                                                                $(".select-size").select2({
+                                                                    tags:true
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Select Color</label>
+                                                        <div class="col-10">
+                                                            <select class="form-control select-color @error('color') is-invalid  @enderror" name="color">
+                                                                <option disabled>Write a color name and press Enter</option>
+                                                                <option>Red</option>
+                                                                <option>Green</option>
+                                                                <option>Yellow</option>
+                                                                <option>Other</option>
+                                                            </select>
+                                                            @error('color')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <script>
+                                                                $(".select-color").select2({
+                                                                    tags:true
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Quantity</label>
+                                                        <div class="col-10">
+                                                            <input type="text" class="form-control @error('quantity') is-invalid  @enderror" name="quantity" placeholder="Enter Quantity">
+                                                            @error('quantity')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Select Unit</label>
+                                                        <div class="col-10">
+                                                            <select class="form-control select-unit @error('unit') is-invalid  @enderror" name="unit">
+                                                                <option disabled>Write unit and press Enter</option>
+                                                                <option>Pices</option>
+                                                                <option>Kg</option>
+                                                                <option>Metter</option>
+                                                            </select>
+                                                            @error('unit')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            <script>
+                                                                $(".select-unit").select2({
+                                                                    tags:true
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            {{-- Multiple File Upload --}}
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <label class="col-2 col-form-label" for="example-image_front">image_front</label>
+                                                    <input type="file" id="example-image_front" name="image_front" class="form-control @error('image_front') is-invalid  @enderror" placeholder="Shop image_front file" onchange="Image_front(this)" required>
+                                                    @error('image_front')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                    
+                                                    <img class="ml-5" src="" alt="" id="image_front">
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="col-2 col-form-label" for="example-image_back">image_back</label>
+                                                    <input type="file" id="example-image_back" name="image_back" class="form-control @error('image_back') is-invalid  @enderror" placeholder="Shop image_back file" onchange="Image_back(this)" required>
+                                                    @error('image_back')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                    
+                                                    <img class="ml-5" src="" alt="" id="image_back">
+                                                </div>
+                                            </div>
+                                            <!-- end row -->
+                    
+                                            <div class="row">
+                                                <div class="col-12 d-flex justify-content-between">
+                                                    <a href="{{ route('product.add') }}" class="btn btn-warning">Reset</a>
+                                                    <button type="submit" class="btn btn-primary">Add</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                    
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
                                 </tr>
                             @endforeach
                         </tbody>
@@ -99,7 +447,36 @@
     <!-- end row -->
 
 
-
+    <script>
+        function Image_front(input) {
+              if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+                  reader.onload = function (e) {
+                      $('#image_front')
+                      .attr('src', e.target.result)
+                      .attr("class","img-thumbnail")
+                      .attr("height",'100%')
+                      .attr("width",'100%')
+                  };
+                  reader.readAsDataURL(input.files[0]);
+             }
+        }
+        function Image_back(input) {
+              if (input.files && input.files[0]) {
+                  var reader = new FileReader();
+                  reader.onload = function (e) {
+                      $('#image_back')
+                      .attr('src', e.target.result)
+                      .attr("class","img-thumbnail")
+                      .attr("height",'100%')
+                      .attr("width",'100%')
+                  };
+                  reader.readAsDataURL(input.files[0]);
+             }
+        }
+    </script>
 @endsection
+
+
 
 

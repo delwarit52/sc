@@ -9,6 +9,7 @@ use App\Models\Admin\Category;
 use App\Models\Admin\Brand;
 use App\Models\Admin\Subcategory;
 use App\Models\Shopadmin\Product;
+use App\Models\Shopadmin\Productdetail;
 
 class ProductController extends Controller
 {
@@ -66,9 +67,9 @@ class ProductController extends Controller
     public function productlist()
     {
         $products = Product::latest()->get();
-        return view('shopadmin.productlist',
-            ['products' => $products]
-        );
+        $productdetails = Productdetail::latest()->get();
+        $count= 1;
+        return view('shopadmin.productlist',compact('products','productdetails','count'));
     }
 
     public function createproduct(Request $request)
