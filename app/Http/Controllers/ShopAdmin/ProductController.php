@@ -4,7 +4,10 @@ namespace App\Http\Controllers\ShopAdmin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Shopadmin\Shop;
+use App\Models\Admin\Category;
+use App\Models\Admin\Brand;
+use App\Models\Admin\Subcategory;
 use App\Models\Shopadmin\Product;
 
 class ProductController extends Controller
@@ -12,20 +15,26 @@ class ProductController extends Controller
     
     public function addindex()
     {
-        // $categories = Category::latest()->get();
-        // $count = 1;
-        return view('shopadmin.addproduct');
+        $shops = Shop::latest()->get();
+        $categories = Category::latest()->get();
+        $brands = Brand::latest()->get();
+        $subcategories = Subcategory::latest()->get();
+        $count = 1;
+        return view('shopadmin.addproduct',compact('categories','shops','brands','subcategories','count'));
     }
     
-    public function productbasicedit($id)
+    public function productEdit($id)
     {
         $product = Product::where('id', $id)->first();
-        return view('shopadmin.productbasicedit',
-            ['product' => $product]
-        );
+        $shops = Shop::latest()->get();
+        $categories = Category::latest()->get();
+        $brands = Brand::latest()->get();
+        $subcategories = Subcategory::latest()->get();
+        $count = 1;
+        return view('shopadmin.product_edit',compact('product','shops','categories','brands','subcategories','count'));
     }
 
-    public function productbasiceditupdate(Product $product)
+    public function productUpdate(Product $product)
     {
         $product->update($this->validateRequest());
         return redirect()->back();
@@ -92,7 +101,7 @@ class ProductController extends Controller
 	            'alert-type' => 'success',
 	        );
     		// return redirect()->back()->with($notification);
-            return view('shopadmin.addproductmoredetails', ['notification' => $notification, 'lastinsertid' => $product->id]);
+            return view('shopadmin.addproductmoredetails', ['notification' => $notification, 'product_id' => $product->id]);
     	}else{
     		$notification = array(
 	            'messege' => 'Ups..Product not Added',
@@ -124,7 +133,7 @@ class ProductController extends Controller
     public function delete(Product $product)
     {
 		if($product->image){
-		unlink('storage/'.$product->image);
+		    unlink('storage/'.$product->image);
 		}
         $product->delete();
         if($product){
@@ -158,7 +167,7 @@ class ProductController extends Controller
             'product_small_description'=>'required|max:100',
             'product_full_description'=>'required',
             'product_shipping_and_return'=>'required',
-            'image'=>'required|file|image|max:6000',
+            'image'=>'sometimes|file|image|max:6000',
         ]);
     }
 
@@ -178,11 +187,10 @@ class ProductController extends Controller
             if(request()->old_image){
                 unlink('storage/'.request()->old_image);
             }
-            $product->update([
+            $subcategory->update([
                 'image' => request()->image->store('shopadmin/product','public'),
             ]);
-
-            // $resize = Image::make('storage/app/public/'.$product->image)->resize(300,300);
+            // $resize = Image::make('storage/app/public/'.$subcategory->image)->resize(300,300);
             // $resize->save();
         }
     }

@@ -34,17 +34,24 @@
             <!-- start card-box -->
             <div class="card-box">
                 <div class="p-20">
-                    <form class="form-horizontal" role="form" action="{{ route('product.basicedit.update', ['id' => $product->id]) }}" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" action="{{ route('shopadmin.product.update',$product->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                         <div class="row">
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label">Select Shop{{ $product->id }}</label>
+                                    <label class="col-2 col-form-label">Select Shop</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('shop_id') is-invalid  @enderror" name="shop_id">
-                                            <option value="1" value="{{ old('shop_id') }}">1</option>
-                                            <option value="2" value="{{ old('shop_id') }}">2</option>
+                                        <select class="form-control select-shop_id @error('shop_id') is-invalid  @enderror" name="shop_id">
+                                            @foreach($shops  as $shop)
+                                                <option value="{{ $shop->id }}" @if ($shop->id == $product->shop_id) selected @endif>{{ $shop->name }}</option>
+                                            @endforeach
                                         </select>
+
+                                        <script>
+                                            $(".select-shop_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('shop_id')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -66,10 +73,17 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Product Brand</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('brand') is-invalid  @enderror" name="brand_id">
-                                            <option value="1" value="{{ old('brand') }}">1</option>
-                                            <option value="1" value="{{ old('brand') }}">1</option>
+                                        <select class="form-control select-brand_id @error('brand') is-invalid  @enderror" name="brand_id">
+                                            @foreach($brands  as $brand)
+                                                <option value="{{ $brand->id }}" @if ($brand->id == $product->brand_id) selected @endif>{{ $brand->name }}</option>
+                                            @endforeach
                                         </select>
+
+                                        <script>
+                                            $(".select-brand_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('brand')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -81,10 +95,10 @@
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <div class="col-9">
-                                        
                                         <div class="fileupload fileupload-new text-center" data-provides="fileupload">
                                             <div class="fileupload-new thumbnail" style="width: 100%; height: 200px; line-height: 20px;">
                                                 <img src="{{ asset('storage/'.$product->image) }}" alt="image"  style="width: 100%; height: 200px; line-height: 20px;" />
+                                                <input type="hidden" name="old_image" value="{{ $product->image }}">
                                             </div>
                                             <div class="fileupload-preview fileupload-exists thumbnail" style="width: 100%; height: 200px; line-height: 20px;"></div>
                                             @error('image')
@@ -96,7 +110,7 @@
                                                 <button type="button" class="btn btn-secondary btn-file">
                                                     <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select Shop Cover Image</span>
                                                     <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                                    <input type="file" class="btn-secondary  @error('image') is-invalid  @enderror" name="image" accept=".jpg,.gif,.png" value="{{ $product->image }}" />
+                                                    <input type="file" class="btn-secondary  @error('image') is-invalid  @enderror" name="image" accept=".jpg,.gif,.png"/>
                                                 </button>
                                             </div>
                                         </div>
@@ -111,9 +125,16 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Select Category</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('product_category_id') is-invalid  @enderror" name="product_category_id">
-                                            <option value="1">1</option>
+                                        <select class="form-control select-product_category_id @error('product_category_id') is-invalid  @enderror" name="product_category_id">
+                                            @foreach($categories  as $category)
+                                                <option value="{{ $category->id }}" @if ($category->id == $product->product_category_id) selected @endif>{{ $category->name }}</option>
+                                            @endforeach
                                         </select>
+                                        <script>
+                                            $(".select-product_category_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('product_category_id')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -126,9 +147,17 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Select Subcategory</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('product_subcategory_id') is-invalid  @enderror" name="product_subcategory_id">
-                                            <option value="1">1</option>
+                                        <select class="form-control select-product_subcategory_id @error('product_subcategory_id') is-invalid  @enderror" name="product_subcategory_id">
+                                            
+                                            @foreach($subcategories  as $subcategory)
+                                                <option value="{{ $subcategory->id }}" @if ($subcategory->id == $product->product_subcategory_id) selected @endif>{{ $subcategory->name }}</option>
+                                            @endforeach
                                         </select>
+                                        <script>
+                                            $(".select-product_subcategory_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('product_subcategory_id')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>

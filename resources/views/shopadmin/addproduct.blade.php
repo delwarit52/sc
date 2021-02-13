@@ -41,10 +41,17 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Select Shop</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('shop_id') is-invalid  @enderror" name="shop_id">
-                                            <option value="1" value="{{ old('shop_id') }}">1</option>
-                                            <option value="2" value="{{ old('shop_id') }}">2</option>
+                                        <select class="form-control select-shop_id @error('shop_id') is-invalid  @enderror" name="shop_id">
+                                            @foreach($shops  as $shop)
+                                                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+                                            @endforeach
                                         </select>
+
+                                        <script>
+                                            $(".select-shop_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('shop_id')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -66,10 +73,17 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Product Brand</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('brand') is-invalid  @enderror" name="brand_id">
-                                            <option value="1" value="{{ old('brand') }}">1</option>
-                                            <option value="1" value="{{ old('brand') }}">1</option>
+                                        <select class="form-control select-brand_id @error('brand') is-invalid  @enderror" name="brand_id">
+                                            @foreach($brands  as $brand)
+                                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                            @endforeach
                                         </select>
+
+                                        <script>
+                                            $(".select-brand_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('brand')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -111,9 +125,16 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Select Category</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('product_category_id') is-invalid  @enderror" name="product_category_id">
-                                            <option value="1">1</option>
+                                        <select class="form-control select-product_category_id @error('product_category_id') is-invalid  @enderror" name="product_category_id">
+                                            @foreach($categories  as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
                                         </select>
+                                        <script>
+                                            $(".select-product_category_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('product_category_id')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -126,9 +147,17 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Select Subcategory</label>
                                     <div class="col-10">
-                                        <select class="form-control @error('product_subcategory_id') is-invalid  @enderror" name="product_subcategory_id">
-                                            <option value="1">1</option>
+                                        <select class="form-control select-product_subcategory_id @error('product_subcategory_id') is-invalid  @enderror" name="product_subcategory_id">
+                                            
+                                            @foreach($subcategories  as $subcategory)
+                                                <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                                            @endforeach
                                         </select>
+                                        <script>
+                                            $(".select-product_subcategory_id").select2({
+                                                tags:true
+                                            });
+                                        </script>
                                         @error('product_subcategory_id')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
