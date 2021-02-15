@@ -57,7 +57,7 @@
     <div id="wrapper">
 
         <!-- Top Bar Start -->
-        <div class="topbar">
+        <div class="topbar" style="z-index: 1049;" >
 
             <!-- LOGO -->
             <div class="topbar-left">

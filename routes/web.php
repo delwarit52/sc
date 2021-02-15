@@ -96,8 +96,8 @@ Route::post('/product/update/{product}', [ProductController::class, 'productUpda
 Route::get('/delete/product/{product}', [ProductController::class, 'delete'])->name('delete.product');
 
 
-Route::get('/addproduct/moredetails', [ProductdetailController::class, 'detailCreate'])->name('product.moredetails');
-Route::post('/addproduct/moredetails/store', [ProductdetailController::class, 'detailStore'])->name('product.detail.store');
+Route::get('/addproduct/moredetails/', [ProductdetailController::class, 'detailCreate'])->name('product.moredetails');
+Route::post('/product/moredetails/store', [ProductdetailController::class, 'detailStore'])->name('product.detail.store');
 Route::get('/productlist/{id}', [ProductController::class, 'productlistsingleshop'])->name('product.productlistsingleshop');
 
 
