@@ -27,48 +27,30 @@
 
 
 <div class="row">
-    <div class="col-12">
-        <div class="card-box w-100">
-            <h4 class="m-t-0 header-title"><b>Shop Table</b></h4>
+    @foreach($shops as $shop)
+    <div class="col-lg-3 col-md-6">
+        <a href="{{ route('shopadmin.shop.products',$shop->id) }}">
+        <div class="card-box widget-box-three">
+            <div>
+                <h5>{{ $shop->name }}</h5>
+            </div>
+            <div class="bg-icon pull-left">
+                <img class="img-rounded" src="{{ asset('storage/'.$shop->logo) }}" title="clock.svg">
+            </div>
+            <div class="text-right">
+                <p class="m-t-5 text-uppercase font-14 font-600">Total Product</p>
+                <h2 class="m-b-10"><span data-plugin="counterup">{{ count($shop->product) }}</span></h2>
+            </div>
                 <!-- Large modal -->
-                <a href="{{ route('shopadmin.shop.create') }}" class="btn waves-effect waves-light float-right btn-primary">Add Shop</a>
+                <a href="{{ route('shopadmin.edit.shop',$shop->id) }}" class="btn btn-block waves-effect waves-light btn-success"><i class="fa fa-pencil"></i></a>
+                <a href="{{ route('shopadmin.delete.shop',$shop->id) }}" class="btn btn-block waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></a>
+            </a>
                 <!-- Small modal -->
-
-            <table id="datatable-buttons" class="table table-striped table-bordered add-edit-table" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                    <th>Sl</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Phone</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-
-
-                <tbody>
-                    @foreach($shops as $shop)
-                <tr>
-                    <td>{{ $count++ }}</td>
-                    <td>{{ $shop->name }}</td>
-                    <td><img src="{{ asset('storage/'.$shop->logo) }}" alt="" width="50px" height="50px"></td>
-                    <td>{{ 27 }}</td>
-                    <td>2011/01/25</td>
-                    <td>
-                        <!-- Large modal -->
-                        <a href="{{ route('shopadmin.edit.shop',$shop->id) }}" class="btn btn-xs waves-effect waves-light btn-success"><i class="fa fa-pencil"></i></a>
-                        <a href="{{ route('shopadmin.delete.shop',$shop->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></a>
-                        <!-- Small modal -->
-                    </td>
-                </tr>
-                @endforeach
-                </tbody>
-            </table>
         </div>
     </div>
+    @endforeach
+
 </div>
-<!-- end row -->
 
 
 @endsection

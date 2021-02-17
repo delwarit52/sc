@@ -10,18 +10,19 @@ use App\Models\Admin\Brand;
 use App\Models\Admin\Subcategory;
 use App\Models\Shopadmin\Product;
 use App\Models\Shopadmin\Productdetail;
+use Auth;
 
 class ProductController extends Controller
 {
     
     public function addindex()
     {
-        $shops = Shop::latest()->get();
+        $shops = Shop::where('user_id',Auth::id())->get();
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
         $subcategories = Subcategory::latest()->get();
         $count = 1;
-        return view('shopadmin.addproduct',compact('categories','shops','brands','subcategories','count'));
+        return view('shopadmin.product.addproduct',compact('categories','shops','brands','subcategories','count'));
     }
     
     public function productEdit($id)
@@ -32,7 +33,7 @@ class ProductController extends Controller
         $brands = Brand::latest()->get();
         $subcategories = Subcategory::latest()->get();
         $count = 1;
-        return view('shopadmin.product_edit',compact('product','shops','categories','brands','subcategories','count'));
+        return view('shopadmin.product.product_edit',compact('product','shops','categories','brands','subcategories','count'));
     }
 
     public function productUpdate(Product $product)
@@ -59,7 +60,7 @@ class ProductController extends Controller
     public function productlistsingleshop($id)
     {
         $products = Product::where('shop_id', $id)->get();
-        return view('shopadmin.productlist',
+        return view('shopadmin.product.productlist',
             ['products' => $products]
         );
     }
@@ -67,9 +68,10 @@ class ProductController extends Controller
     public function productlist()
     {
         $products = Product::latest()->get();
+        $shoplists = Shop::where('user_id',Auth::id())->get();
         $productdetails = Productdetail::latest()->get();
         $count= 1;
-        return view('shopadmin.productlist',compact('products','productdetails','count'));
+        return view('shopadmin.product.productlist',compact('products','productdetails','count','shoplists'));
     }
 
     public function createproduct(Request $request)
@@ -102,7 +104,7 @@ class ProductController extends Controller
 	            'alert-type' => 'success',
 	        );
     		// return redirect()->back()->with($notification);
-            return view('shopadmin.addproductmoredetails', ['notification' => $notification, 'product_id' => $product->id]);
+            return view('shopadmin.product.addproductmoredetails', ['notification' => $notification, 'product_id' => $product->id]);
     	}else{
     		$notification = array(
 	            'messege' => 'Ups..Product not Added',
@@ -150,6 +152,15 @@ class ProductController extends Controller
 	        );
 	        return redirect()->back()->with($notification);
     	}
+    }
+
+
+    public function shopProduct($shop)
+    {
+        $shoplists = Shop::where('user_id',Auth::id())->get();
+        $products = Product::where('shop_id',$shop)->get(); 
+        $count = 1;
+        return view('shopadmin.product.shopproduct',compact('products','count','shoplists'));
     }
     
 

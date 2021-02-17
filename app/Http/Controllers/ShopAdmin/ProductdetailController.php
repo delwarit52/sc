@@ -15,22 +15,8 @@ class ProductdetailController extends Controller
     public function detailStore(Request $request)
     {
         // return "Hello Create";
-        $this->validateRequest();
-
-        $code = "code12";
         
-        $productdetail = Productdetail::create(
-            [
-                'product_id'=> $request->product_id,
-                'size'=> $request->size,
-                'color'=> $request->color,
-                'quantity'=> $request->quantity,
-                'unit'=> $request->unit,
-                'image_front'=> $request->image_front,
-                'image_back'=> $request->image_back,
-                'code'=> $code,
-            ]
-        );
+        $productdetail = Productdetail::create($this->validateRequest());
         $this->storeImage($productdetail);
         if($productdetail){
     		$notification = array(
@@ -48,6 +34,60 @@ class ProductdetailController extends Controller
         
     }
 
+    public function detailEdit(Productdetail $productdetail)
+    {
+        return view('shopadmin.product.productdetail.productdetail_edit',compact('productdetail'));
+    }
+
+    public function detailUpdate(Request $request,Productdetail $productdetail)
+    {
+        
+        // return "Hello Create";
+
+        $code = "code12";
+
+        
+        $productdetail->update($this->validateRequest());
+        $this->storeImageupdate($productdetail);
+        if($productdetail){
+    		$notification = array(
+	            'messege' => 'Product added Successful',
+	            'alert-type' => 'success',
+	        );
+            return redirect()->back()->with($notification);;
+    	}else{
+    		$notification = array(
+	            'messege' => 'Ups..Product not Added',
+	            'alert-type' => 'error',
+	        );
+	        return redirect()->back()->with($notification);
+    	}
+        
+        
+    }
+
+    
+    public function detailDelete(Productdetail $productdetail)
+    {
+		if($productdetail->image){
+		    unlink('storage/'.$product->image);
+		}
+        $productdetail->delete();
+        if($productdetail){
+    		$notification = array(
+	            'messege' => 'Product more details deleted Successful',
+	            'alert-type' => 'success',
+	        );
+    		return redirect()->back()->with($notification);
+    	}else{
+    		$notification = array(
+	            'messege' => 'Ups..something went wrong',
+	            'alert-type' => 'error',
+	        );
+	        return redirect()->back()->with($notification);
+    	}
+    }
+
     
     private function validateRequest()
     {
@@ -57,23 +97,42 @@ class ProductdetailController extends Controller
             'color' => 'required',
             'quantity' => 'required',
             'unit' => 'required',
-            'image_front' => 'required',
-            'image_back' => 'required',
+            'image_front' => '',
+            'image_back' => '',
             'code' => '',
         ]);
     }
     
-    private function storeImage($product)
+    private function storeImage($productdetail)
     {
     	if(request()->hasFile('image_front')){
-    		$product->update([
-    			'image_front' => request()->image_front->store('shopadmin/product','public'),
+    		$productdetail->update([
+    			'image_front' => request()->image_front->store('shopadmin/productdetail','public'),
     		]);
     	}
     	if(request()->hasFile('image_back')){
-    		$product->update([
-    			'image_back' => request()->image_back->store('shopadmin/product','public'),
+    		$productdetail->update([
+    			'image_back' => request()->image_back->store('shopadmin/productdetail','public'),
     		]);
+    	}
+	}
+    private function storeImageupdate($productdetail)
+    {
+    	if(request()->hasFile('image_front')){
+    		$productdetail->update([
+    			'image_front' => request()->image_front->store('shopadmin/productdetail','public'),
+    		]);
+            if(request()->old_image_front){
+                unlink('storage/'.request()->old_image_front);
+            }
+    	}
+    	if(request()->hasFile('image_back')){
+    		$productdetail->update([
+    			'image_back' => request()->image_back->store('shopadmin/productdetail','public'),
+    		]);
+            if(request()->old_image_back){
+                unlink('storage/'.request()->old_image_back);
+            }
     	}
 	}
 }

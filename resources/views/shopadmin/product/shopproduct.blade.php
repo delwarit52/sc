@@ -1,7 +1,6 @@
 @extends('shopadmin.layouts.app')
 @section('content')
 
-
     <!-- BREADCRUMB-->
     <section class="au-breadcrumb">
         <div class="section__content section__content--p30">
@@ -41,9 +40,9 @@
                             Select A Shop
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            {{-- <a class="dropdown-item" href="{{ route('product.productlistsingleshop', ['id' => 1]) }}">Shop One</a>
-                            <a class="dropdown-item" href="{{ route('product.productlistsingleshop', ['id' => 2]) }}">Shop Two</a> --}}
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            @foreach($shoplists as $shop)
+                            <a class="dropdown-item" href="{{ route('shopadmin.shop.products',$shop->id) }}">{{ $shop->name }}</a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -81,22 +80,17 @@
                                     </td>
                                     <td>
                                         
-                        <!-- Large modal -->
-                        {{-- <button type="button" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-pencil"></i></button> --}}
-                        {{-- <button href="{{ route('delete.category',$category->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></button> --}}
-                        <!-- Small modal -->
-                                        <button href="{{ route('product.edit',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-warning"><i class="fa fa-pencil"></i></button>
-                                        <button type="button" class="btn btn-xs waves-effect waves-light btn-secondary" data-toggle="modal" data-target=".bs-example-modal-lg1"><i class="fa fa-info-circle"></i></button>
+                
+                                        <a href="{{ route('product.edit',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-warning"><i class="fa fa-pencil"></i></a>
+                                        <button type="button" class="btn btn-xs waves-effect waves-light btn-secondary" data-toggle="modal" data-target=".bs-example-modal-lg1{{ $product->id }}"><i class="fa fa-info-circle"></i></button>
                                         <button type="button" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i></button>
-                                        <!-- Large modal -->
-                                        {{-- <a href="a" class="btn btn-xs waves-effect waves-light btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-pencil"></i></a> --}}
                                         <button href="{{ route('delete.product',$product->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></button>
                                         <!-- Small modal -->
                                     </td>
                                     
                     
-                    <!--  Modal content for the above example -->
-                    <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                    <!--  Product Details list in modal -->
+                    <div class="modal fade bs-example-modal-lg1{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -124,26 +118,30 @@
                                             Action
                                         </div>
                                     </div>
-                                    @foreach($productdetails as $productdetail)
+                                    @foreach($product->productdetail as $productdetail)
                                     <div class="row">
                                         <div class="col-md-2" style="border:1px solid lightgray">
-                                            1
+                                            {{ $count++ }}
                                         </div>
                                         <div class="col-md-2" style="border:1px solid lightgray">
-                                            
+                                            {{ $productdetail->size }}
                                         </div>
                                         <div class="col-md-2" style="border:1px solid lightgray">
                                             {{ $productdetail->color }}
                                         </div>
                                         <div class="col-md-2" style="border:1px solid lightgray">
-                                            Quantity
+                                            {{ $productdetail->quantity }}
                                         </div>
                                         <div class="col-md-2" style="border:1px solid lightgray">
-                                            Unit
+                                            {{ $productdetail->unit }}
                                         </div>
                                         <div class="col-md-2" style="border:1px solid lightgray">
                                 
-                                    <button type="button" class="btn btn-xs waves-effect waves-light btn-info" data-toggle="modal" data-target=".bs-example-modal-lg2"><i class="fa fa-info-circle"></i></button>
+                                    <a href="{{ route('product.detail.edit',$productdetail->id) }}" class="btn btn-xs waves-effect waves-light btn-info"><i class="fa fa-pencil"></i></a>
+                                    
+                                    {{-- delete product details --}}
+                                    <button href="{{ route('product.detail.delete',$productdetail->id) }}" class="btn btn-xs waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></button>
+
                                         </div>
                                     </div>
                                     @endforeach
@@ -247,6 +245,20 @@
                                                                     tags:true
                                                                 });
                                                             </script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col col-sm-12 col-md-6">
+                                                    <div class="form-group row">
+                                                        <label class="col-2 col-form-label">Code</label>
+                                                        <div class="col-10">
+                                                            <input type="text" value="" class="form-control" name="code" placeholder="Enter code">
+                                                            @error('code')
+                                                                <span class="invalid-feedback text-danger" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>

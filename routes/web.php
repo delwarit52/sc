@@ -30,6 +30,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
 
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
@@ -94,10 +95,16 @@ Route::post('/addproduct/create', [ProductController::class, 'createproduct'])->
 Route::get('/product/edit/{id}', [ProductController::class, 'productEdit'])->name('product.edit');
 Route::post('/product/update/{product}', [ProductController::class, 'productUpdate'])->name('shopadmin.product.update');
 Route::get('/delete/product/{product}', [ProductController::class, 'delete'])->name('delete.product');
+Route::get('/shop/product/{product}', [ProductController::class, 'shopProduct'])->name('shopadmin.shop.products');
 
+
+//Product details
 
 Route::get('/addproduct/moredetails/', [ProductdetailController::class, 'detailCreate'])->name('product.moredetails');
 Route::post('/product/moredetails/store', [ProductdetailController::class, 'detailStore'])->name('product.detail.store');
+Route::get('/product/moredetails/edit/{productdetail}', [ProductdetailController::class, 'detailEdit'])->name('product.detail.edit');
+Route::post('/product/moredetails/update/{productdetail}', [ProductdetailController::class, 'detailUpdate'])->name('product.detail.update');
 Route::get('/productlist/{id}', [ProductController::class, 'productlistsingleshop'])->name('product.productlistsingleshop');
+Route::get('/delete/productdetail/{productdetail}', [ProductdetailController::class, 'detailDelete'])->name('product.detail.delete');
 
 
