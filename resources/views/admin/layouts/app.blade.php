@@ -160,7 +160,7 @@
                             </a>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{ route('logout') }}" class="dropdown-item notify-item">
                                 <i class="zmdi zmdi-power"></i> <span>Logout</span>
                             </a>
 
@@ -238,22 +238,6 @@
                             <ul class="nav-second-level" aria-expanded=false>
                                 <li><a href="{{ route('shopadmin.shop.list') }}">Shop List</a></li>
                                 <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-target"></i> <span> Admin UI </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="admin-grid.html">Grid</a></li>
-                                <li><a href="admin-sweet-alert.html">Sweet Alert</a></li>
-                                <li><a href="admin-tiles.html">Tiles Box</a></li>
-                                <li><a href="admin-nestable.html">Nestable List</a></li>
-                                <li><a href="admin-rangeslider.html">Range Slider</a></li>
-                                <li><a href="admin-ratings.html">Ratings</a></li>
-                                <li><a href="admin-filemanager.html">File Manager</a></li>
-                                <li><a href="admin-lightbox.html">Lightbox</a></li>
-                                <li><a href="admin-scrollbar.html">Scroll bar</a></li>
-                                <li><a href="admin-slider.html">Slider</a></li>
-                                <li><a href="admin-treeview.html">Treeview</a></li>
                             </ul>
                         </li>
                     </ul>

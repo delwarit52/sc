@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
 use App\Models\Shopadmin\Shop;
+use Auth;
 
 class ShopController extends Controller
 {
@@ -15,7 +16,7 @@ class ShopController extends Controller
     }
     public function shopIndex()
     {
-        $shops = Shop::latest()->get();
+        $shops = Shop::where('user_id',Auth::id())->get();
         $count = 1;
         return view('shopadmin.shop.shop_index',compact('shops','count'));
     }

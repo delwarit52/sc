@@ -6,24 +6,24 @@
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('../front/assets/image/favicon.ico')}}">
     <title>smart city</title>
     <!--=== ALL CSS Here ===-->
-    <!--=== Bootstrap ===-->
+        <!--=== Bootstrap ===-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"> 
     <!--=== Fontawesome icon ===-->
-    <link rel="stylesheet" href="{{ asset('../front/assets/css/fontawesome.min.css')}}">
-	<link rel="stylesheet" href="{{ asset('../front/assets/css/all.min.css')}}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/fontawesome.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/all.min.css') }}">
 	<!--=== slick slider ===-->
-	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/slick.css')}}">
-	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/slick-theme.css')}}">
-	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/meanmenu.css')}}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/slick.css') }}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/slick-theme.css') }}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/meanmenu.css') }}">
 	<!--=== OWL CAROUSEL ===-->
-	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/owl.carousel.min.css')}}">
-	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/owl.theme.default.min.css')}}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/owl.carousel.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/owl.theme.default.min.css') }}">
     <!--=== wow animation ===-->
-    <link rel="stylesheet" href="{{ asset('../front/assets//css/plugin/animate.css')}}">
+	<link rel="stylesheet" href="{{ asset('../front/assets//css/plugin/animate.css') }}">
     <!--=== Custom CSS ===-->
-    <link rel="stylesheet" href="{{ asset('../front/assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('../front/assets/css/responsive.css')}}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/responsive.css') }}">
 </head>
 <body>
 	<!-- LOADER AREA START -->
@@ -72,8 +72,16 @@
 				<div class="col_xl_3 col-lg-3 col-md-6 col-sm-6 col-6">
 					<div class="top_bar_right">
 						<ul>
-							<li><a href="seller_signin.html" class="log_btn"><i class="far fa-user"></i></a></li>
-							<li><a href="add_listing.html" class="top_btn"><i class="fas fa-plus"></i> Add listing</a></li>
+							@guest
+							<li><a href="{{ route('login') }}" class="log_btn"><i class="far fa-user"></i></a></li>
+							<li><a href="{{ route('register') }}" class="log_btn"><i class="fas fa-user-plus"></i></a></li>
+
+							@else
+							<li><a href="{{ route('logout') }}" class="log_btn"><i class="fas fa-sign-out-alt"></i></a></li>
+								
+							@endguest
+							{{-- <li><a href="add_listing.html" class="top_btn"><i class="fas fa-plus"></i> Add list</a></li> --}}
+							<li><a href="{{ route('shop.request') }}" class="top_btn"><i class="fas fa-plus"></i> Shop</a></li>
 						</ul>
 					</div>
 				</div>
@@ -81,6 +89,7 @@
 		</div>
 	</header>
 <!-- HEADER AREA END-->
+
 	<!-- Find AREA START -->
 	<section class="sm_find_area sm_section_padding">
 		
@@ -212,26 +221,26 @@
 
     <!--=== ALL JS Here ===-->
     <!--=== jQuery 3.4.1 ===-->
-	<script src="{{ asset('../front/assets/js/jquery-3.4.1.min.js')}}"></script>
+	<script src="{{ asset('../front/assets/js/jquery-3.4.1.min.js') }}"></script>
 	<!--=== Bootstrap js ===-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!--=== WOW Animation Js===-->
-	<script src="{{ asset('../front/assets/js/plugin/wow.min.js')}}"></script>
-	<script src="{{ asset('../front/assets/js/plugin/owl.carousel.min.js')}}"></script>
-	<script src="{{ asset('../front/assets/js/plugin/slick.js')}}"></script>
-	<script src="{{ asset('../front/assets/js/plugin/jquery.carousel.js')}}"></script>
+	<script src="{{ asset('../front/assets/js/plugin/wow.min.js') }}"></script>
+	<script src="{{ asset('../front/assets/js/plugin/owl.carousel.min.js') }}"></script>
+	<script src="{{ asset('../front/assets/js/plugin/slick.js') }}"></script>
+	<script src="{{ asset('../front/assets/js/plugin/jquery.carousel.js') }}"></script>
 	      <!--=== Responsive Menu js===-->
-	<script src="{{ asset('../front/assets/js/plugin/jquery.meanmenu.min.js')}}"></script>
+	<script src="{{ asset('../front/assets/js/plugin/jquery.meanmenu.min.js') }}"></script>
     <!--=== to top  js===-->
-    <script src="{{ asset('../front/assets/js/plugin/jquery.toTop.min.js')}}"></script>
+    <script src="{{ asset('../front/assets/js/plugin/jquery.toTop.min.js') }}"></script>
 	<!--=== smooth scroll js===-->
-	<script src="{{ asset('../front/assets/js/plugin/smoothscroll.js')}}"></script>
+	<script src="{{ asset('../front/assets/js/plugin/smoothscroll.js') }}"></script>
 		<!--=== Isotop Filtering JS===-->
 	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 	<script src="assets/js/plugin/ziehharmonika.js"></script>
     <!--=== Custom JS ===-->
-    <script src="{{ asset('../front/assets/js/main.js')}}"></script>
+    <script src="{{ asset('../front/assets/js/main.js') }}"></script>
 
 
 

@@ -5,6 +5,7 @@ namespace App\Models\Shopadmin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Shopadmin\Productdetail;
+use App\Models\Shopadmin\Shop;
 
 class Product extends Model
 {
@@ -19,6 +20,10 @@ class Product extends Model
     public function Productdetail()
     {
     	return $this->hasMany(Productdetail::class,'product_id', 'id');
+    }
+    public function Shop()
+    {
+        return $this->belongsTo(Shop::class);
     }
 
     // public function Subcategory()
