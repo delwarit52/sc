@@ -19,7 +19,8 @@
 <!-- ADD LISTING AREA START -->
 <section class="add_listing_area sm_section_padding_3" style="padding: 0; background:#fff;">
     <div class="container">
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{ route('shopadmin.detail.create') }}" method="post" enctype="multipart/form-data"> 
+        @csrf
         <div class="listing_starting text-center">
             <p><strong>Returning User?</strong> Please <a href="seller_signin.html">Sign in</a> and if you are a <strong>New User, Continue</strong> Below and register along with this submission.</p>
         </div>
@@ -30,21 +31,34 @@
                         <div class="card">
                             <img class="card-img-top" src="{{ asset('../front/assets/image/add_listing/submit-listing-1.jpg') }}" alt="Listing image">
                             <div class="card-body">
+                            <input type="hidden" value="1" name="user_id">
                                 <div class="form-group">
                                     <label>Full Name</label>
-                                    <input type="text" placeholder="Enter Shop Admin Name" class="form-control" name="fullname">
+                                    <input type="text" placeholder="Enter Shop Admin Name" class="form-control"  name="fullname">
+                                    @error('fullname')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>National ID no.:</label>
                                     <input type="text" placeholder="9999xxxxxxxxx" class="form-control" name="nid">
+                                    @error('nid')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Profession</label>
                                     <input name="profession" type="text" placeholder="Add your Profession" class="form-control">
+                                    @error('profession')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Birth Date</label>
                                     <input name="birthdate" type="text" placeholder="Add Birth date" class="form-control">
+                                    @error('birthdate')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Gender</label>
@@ -54,20 +68,29 @@
                                         <option>Female</option>
                                         <option>Other</option>
                                     </select>
+                                    @error('gender')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label>Marital Status</label>
-                                    <select name="marital_status" type="text" placeholder="+0123-2937-890" class="form-control">
+                                    <select name="maritial_status" type="text" placeholder="+0123-2937-890" class="form-control">
                                         <option disabled>Select a option</option>
                                         <option>Married</option>
                                         <option>In a Relationship</option>
                                         <option>Single</option>
                                         <option>Other</option>
                                     </select>
+                                    @error('maritial_status')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group listing_description">
                                     <label>Add listing description</label>
                                     <textarea class="form-control" name="address"></textarea>
+                                    @error('address')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -85,9 +108,12 @@
                                         <p><i class="fas fa-upload"></i></p>
                                         <p>Drag & drops your file</p>
                                         <p>or</p>
-                                        <input type="file" name="image" class="form-control" onchange="Image_front(this)" required>
+                                        <input type="file" name="image" class="form-control" onchange="ImageView(this)">
+                                    <img class="ml-5" src="" alt="" id="image1">
                                     </div>
-                                    <small>The image will be shown on listing cards. </small>
+                                    @error('image')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -97,7 +123,10 @@
         </div>
         <div class="form-group notification_email text-center">
             <label>Enter email to signup & recieve notification upon listing approval</label>
-            <input type="email" placeholder="Enter your shop contact email" class="form-control">
+            <input type="email" placeholder="Enter your shop contact email" name="email" class="form-control">
+            @error('email')
+                <small class="text-danger">{{ $message }}</small>
+            @enderror
         </div>
         <div class="account_confirmation text-center">
             <input type="checkbox">
@@ -112,11 +141,11 @@
     </section>
     <!-- ADD LISTING AREA END -->
     <script>
-    function Image(input) {
+    function ImageView(input) {
       	if (input.files && input.files[0]) {
           	var reader = new FileReader();
           	reader.onload = function (e) {
-              	$('#Image')
+              	$('#image1')
               	.attr('src', e.target.result)
 			  	.attr("class","img-thumbnail")
 			  	.attr("height",'100%')

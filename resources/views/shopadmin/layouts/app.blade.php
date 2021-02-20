@@ -189,7 +189,7 @@
                     <ul class="metismenu" id="side-menu">
                         <li class="menu-title">Navigation</li>
                         <li>
-                            <a href="{{ route('shopadmin') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
+                            <a href="{{ route('shopadmin.dashboard') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
                         </li>
                         <li>
                             <a href="javascript: void(0);">
@@ -200,6 +200,17 @@
                             <ul class="nav-second-level" aria-expanded=false>
                                 <li><a href="{{ route('product.add') }}">Add Product</a></li>
                                 <li><a href="{{ route('product.productlist') }}">Product List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-air-play"></i>
+                                <span> Shop </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded=false>
+                                <li><a href="{{ route('shopadmin.shop.list') }}">Shop List</a></li>
+                                <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
                             </ul>
                         </li>
                         <li>

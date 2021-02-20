@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Shopadmin\Shop;
+use App\Models\Shopadmin\Shopadmindetail;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function Shop()
     {
         return $this->hasOne(Shop::class);
+    }
+    
+    public function Shopadmindetail()
+    {
+        return $this->belongsTo(Shopadmindetail::class);
     }
 }
