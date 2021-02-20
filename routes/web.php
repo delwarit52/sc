@@ -4,15 +4,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\SubcategoryController;
+use App\Http\Controllers\ShopAdmin\ShopadminController;
 use App\Http\Controllers\ShopAdmin\ShopController;
 use App\Http\Controllers\ShopAdmin\ProductController;
 use App\Http\Controllers\ShopAdmin\ProductMoreDetailsController;
 use App\Http\Controllers\ShopAdmin\ProductdetailController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,10 +37,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
 
 Route::get('/shop/request',[PublicController::class, 'shopRequest'])->name('shop.request');
-
+Route::post('/shopadmin/detail/create',[PublicController::class, 'detailStore'])->name('shopadmin.detail.create');
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
+
+    //Shopadmin Requests
+    Route::get('/shopadmin/request/lists',[AdminController::class, 'shopadminRequest'])->name('shopadmin.request.list');
+    Route::get('/shopadmin/request/accept/{id}',[AdminController::class, 'shopadminAccept'])->name('shopadmin.request.accept');
 
     // Division
     Route::get('/division', [DivisionController::class, 'index'])->name('admin.division');
@@ -58,15 +65,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/create/category', [CategoryController::class, 'create'])->name('create.category');
     Route::post('/update/category/{category}', [CategoryController::class, 'update'])->name('update.category');
     Route::get('/delete/category/{category}', [CategoryController::class, 'delete'])->name('delete.category');
-
-    //Shop Manage
-    // Route::get('Shopadmin/dashboard/', [ShopController::class, 'shopDashboard'])->name('shopadmin.dashboard');
-    Route::get('/shop/list', [ShopController::class, 'shopIndex'])->name('shopadmin.shop.list');
-    Route::get('/shop/create/', [ShopController::class, 'shopCreate'])->name('shopadmin.shop.create');
-    Route::post('/shop/store/', [ShopController::class, 'shopStore'])->name('shopadmin.shop.store');
-    Route::get('/shop/edit/{shop}', [ShopController::class, 'shopEdit'])->name('shopadmin.edit.shop');
-    Route::post('/shop/update/{shop}', [ShopController::class, 'shopUpdate'])->name('shopadmin.update.shop');
-    Route::get('/delete/shop/{shop}', [ShopController::class, 'delete'])->name('shopadmin.delete.shop');
 
     // Subcategory
     Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('admin.subcategory');
@@ -89,8 +87,23 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/update/brand/{brand}', [BrandController::class, 'update'])->name('update.brand');
     Route::get('/delete/brand/{brand}', [BrandController::class, 'delete'])->name('delete.brand');
 
+
+});
+
+
+Route::middleware(['auth', 'shopadmin'])->group(function () {
+    
     // ShopAdmin
-    Route::get('/shopadmin', [App\Http\Controllers\HomeController::class, 'shopadmin'])->name('shopadmin');
+    Route::get('/shopadmin/dashboard', [ShopadminController::class, 'dashboard'])->name('shopadmin.dashboard');
+
+    //Shop Manage
+    // Route::get('Shopadmin/dashboard/', [ShopController::class, 'shopDashboard'])->name('shopadmin.dashboard');
+    Route::get('/shop/list', [ShopController::class, 'shopIndex'])->name('shopadmin.shop.list');
+    Route::get('/shop/create/', [ShopController::class, 'shopCreate'])->name('shopadmin.shop.create');
+    Route::post('/shop/store/', [ShopController::class, 'shopStore'])->name('shopadmin.shop.store');
+    Route::get('/shop/edit/{shop}', [ShopController::class, 'shopEdit'])->name('shopadmin.edit.shop');
+    Route::post('/shop/update/{shop}', [ShopController::class, 'shopUpdate'])->name('shopadmin.update.shop');
+    Route::get('/delete/shop/{shop}', [ShopController::class, 'delete'])->name('shopadmin.delete.shop');
 
     //Product
     Route::get('/productlist', [ProductController::class, 'productlist'])->name('product.productlist');
@@ -101,7 +114,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/delete/product/{product}', [ProductController::class, 'delete'])->name('delete.product');
     Route::get('/shop/product/{product}', [ProductController::class, 'shopProduct'])->name('shopadmin.shop.products');
 
-
     //Product details
 
     Route::get('/addproduct/moredetails/', [ProductdetailController::class, 'detailCreate'])->name('product.moredetails');
@@ -110,5 +122,4 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/product/moredetails/update/{productdetail}', [ProductdetailController::class, 'detailUpdate'])->name('product.detail.update');
     Route::get('/productlist/{id}', [ProductController::class, 'productlistsingleshop'])->name('product.productlistsingleshop');
     Route::get('/delete/productdetail/{productdetail}', [ProductdetailController::class, 'detailDelete'])->name('product.detail.delete');
-
 });

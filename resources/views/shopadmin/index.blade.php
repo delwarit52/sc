@@ -1,8 +1,6 @@
 
 @extends('shopadmin.layouts.app')
 @section('content')
-
-
             <!-- BREADCRUMB-->
             <section class="au-breadcrumb">
                 <div class="section__content section__content--p30">

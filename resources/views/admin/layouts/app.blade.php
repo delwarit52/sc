@@ -195,6 +195,22 @@
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>
+                <div class="col_xl_3 col-lg-3 col-md-6 col-sm-6 col-6">
+                    <div class="top_bar_right">
+                        <ul>
+                            @guest
+                            <li><a href="{{ route('login') }}" class="log_btn"><i class="far fa-user"></i></a></li>
+                            <li><a href="{{ route('register') }}" class="log_btn"><i class="fas fa-user-plus"></i></a></li>
+
+                            @else
+                            <li><a href="{{ route('logout') }}" class="log_btn"><i class="fas fa-sign-out-alt"></i></a></li>
+                                
+                            @endguest
+                            {{-- <li><a href="add_listing.html" class="top_btn"><i class="fas fa-plus"></i> Add list</a></li> --}}
+                            <li><a href="{{ route('shop.request') }}" class="top_btn"><i class="fas fa-plus"></i> Shop</a></li>
+                        </ul>
+                    </div>
+                </div>
                     </li>
                     <!-- HEADER AREA END-->
                 </ul>
@@ -213,8 +229,12 @@
                     <!-- Left Menu Start -->
                     <ul class="metismenu" id="side-menu">
                         <li class="menu-title">Navigation</li>
+                        @if(Auth::user()->user_type == 1)
                         <li>
                             <a href="{{ route('dashboard') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('shopadmin.request.list') }}"><i class="fi-layers"></i> <span> Shopadmin Request </span></a>
                         </li>
                         <li>
                             <a href="javascript: void(0);">
@@ -229,8 +249,15 @@
                                 <li><a href="{{ route('admin.brand') }}">Brand</a></li>
                             </ul>
                         </li>
+                        @endif
+
+                        @if(Auth::user()->user_type ==2)
+                        
                         <li>
-                            <a href="javascript: void(0);">
+                            <a href="{{ route('shopadmin.dashboard') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
+                        </li>
+                        <li>
+                            <a href="">
                                 <i class="fi-air-play"></i>
                                 <span> Shop </span>
                                 <span class="menu-arrow"></span>
@@ -240,6 +267,18 @@
                                 <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="">
+                                <i class="fi-air-play"></i>
+                                <span> Product </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded=false>
+                                <li><a href="{{ route('product.add') }}">Add Product</a></li>
+                                <li><a href="{{ route('product.productlist') }}">Product List</a></li>
+                            </ul>
+                        </li>
+                        @endif
                     </ul>
 
                 </div>
