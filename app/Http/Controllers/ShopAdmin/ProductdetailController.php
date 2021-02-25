@@ -10,7 +10,7 @@ class ProductdetailController extends Controller
 {
     public function detailCreate()
     {
-        return view('shopadmin.addproductmoredetails');
+        return view('shopadmin.product.addproductmoredetails');
     }
     public function detailStore(Request $request)
     {
@@ -23,7 +23,7 @@ class ProductdetailController extends Controller
 	            'messege' => 'Product added Successful',
 	            'alert-type' => 'success',
 	        );
-            return redirect()->back()->with($notification);;
+            return redirect()->route('product.productlistsingleshop')->with($notification);;
     	}else{
     		$notification = array(
 	            'messege' => 'Ups..Product not Added',

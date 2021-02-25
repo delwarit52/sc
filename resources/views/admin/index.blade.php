@@ -3,79 +3,72 @@
 @section('content')
 
 
-            <!-- BREADCRUMB-->
-            <section class="au-breadcrumb">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="au-breadcrumb-content">
-                                    <div class="au-breadcrumb-left">
-                                        <span class="au-breadcrumb-span">You are here:</span>
-                                        <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                            <li class="list-inline-item active">
-                                                <a href="#">Home</a>
-                                            </li>
-                                            <li class="list-inline-item seprate">
-                                                <span>/</span>
-                                            </li>
-                                            <li class="list-inline-item">Dashboard</li>
-                                        </ul>
-                                    </div>
-                                    <button class="au-btn au-btn-icon au-btn--green">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- END BREADCRUMB-->
-            <!-- STATISTIC-->
-            <section class="statistic">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">10,368</h2>
-                                    <span class="desc">members online</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-account-o"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">388,688</h2>
-                                    <span class="desc">items sold</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-shopping-cart"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">1,086</h2>
-                                    <span class="desc">this week</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-calendar-note"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-3">
-                                <div class="statistic__item">
-                                    <h2 class="number">$1,060,386</h2>
-                                    <span class="desc">total earnings</span>
-                                    <div class="icon">
-                                        <i class="zmdi zmdi-money"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- END STATISTIC-->
+
+
+<!-- BREADCRUMB-->
+    
+
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box">
+            <h4 class="page-title float-left">Shop</h4>
+
+            <ol class="breadcrumb float-right">
+                <li class="breadcrumb-item"><a href="#">SmartCity</a></li>
+                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+
+
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <a href=""></a>
+        <div class="card-box widget-box-three">
+            <div>
+                <h5></h5>
+            </div>
+            <div class="bg-icon pull-left">
+                <i class="fas fa-store"></i>
+            </div>
+            <div class="text-right">
+                <p class="m-t-5 text-uppercase font-14 font-600">Shops</p>
+                <h2 class="m-b-10"><span data-plugin="counterup"></span></h2>
+            </div>
+                <!-- Large modal -->
+                {{-- <a href="" class="btn btn-block waves-effect waves-light btn-success"><i class="fa fa-pencil"></i></a>
+                <a href="" class="btn btn-block waves-effect waves-light btn-danger" id="delete"><i class="fa fa-trash-o"></i></a> --}}
+            </a>
+        </div>
+                <!-- Small modal -->
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <a href="">
+        <div class="card-box widget-box-three">
+            <div>
+                <h5></h5>
+            </div>
+            <div class="bg-icon pull-left">
+                <i class="fas fa-cart-plus"></i>
+            </div>
+            <div class="text-right">
+                <p class="m-t-5 text-uppercase font-14 font-600">Product</p>
+                <h2 class="m-b-10"><span data-plugin="counterup">0</span></h2>
+            </div>
+            </a>
+        </div>
+                <!-- Small modal -->
+    </div>
+</div>
+
+</div>
+
+
 @endsection
 

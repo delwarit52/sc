@@ -78,25 +78,8 @@ class ProductController extends Controller
     {
         // return "Hello Create";
         $this->validateRequest();
-
-        $code = "code-1";
         
-        $product = Product::create(
-            [
-                'name'=> $request->name,
-                'shop_id'=> $request->shop_id,
-                'brand_id'=> $request->brand_id,
-                'product_category_id'=> $request->product_category_id,
-                'product_subcategory_id'=> $request->product_subcategory_id,
-                'product_price'=> $request->product_price,
-                'product_price_discount'=> $request->product_price_discount,
-                'product_small_description'=> $request->product_small_description,
-                'product_full_description'=> $request->product_full_description,
-                'product_shipping_and_return'=> $request->product_shipping_and_return,
-                'image'=> $request->image,
-                'code'=> $code,
-            ]
-        );
+        $product = Product::create($this->validateRequest());
         $this->storeImage($product);
         if($product){
     		$notification = array(
@@ -175,11 +158,13 @@ class ProductController extends Controller
             'product_category_id'=>'required',
             'product_subcategory_id'=>'required',
             'product_price'=>'required',
-            'product_price_discount'=>'required',
+            'product_price_discount'=>'max:2',
             'product_small_description'=>'required|max:100',
             'product_full_description'=>'required',
             'product_shipping_and_return'=>'required',
+            'code' =>'required',
             'image'=>'sometimes|file|image|max:6000',
+            
         ]);
     }
 

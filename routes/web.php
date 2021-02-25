@@ -27,20 +27,31 @@ use App\Http\Controllers\ShopAdmin\ProductdetailController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [PublicController::class, 'index'])->name('/');
+Route::get('malls',[PublicController::class,'mall'])->name('malls');
+Route::get('women/enterpreneurs',[PublicController::class,'womenEnterpreneur'])->name('women.enterpreneurs');
+Route::get('shops',[PublicController::class,'shop'])->name('shops');
+Route::get('single/shop/{shop}',[PublicController::class,'singleShop'])->name('single.shop');
+Route::get('single/product/{product}',[PublicController::class,'singleProduct'])->name('single.product');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
 
-Route::get('/shop/request',[PublicController::class, 'shopRequest'])->name('shop.request');
-Route::post('/shopadmin/detail/create',[PublicController::class, 'detailStore'])->name('shopadmin.detail.create');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/shop/request',[PublicController::class, 'shopRequest'])->name('shop.request');
+    Route::post('/shopadmin/detail/create',[PublicController::class, 'detailStore'])->name('shopadmin.detail.create');
+});
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
+
+    //product list
+    
+    Route::get('/productlist', [ProductController::class, 'productlist'])->name('product.productlist');
 
     //Shopadmin Requests
     Route::get('/shopadmin/request/lists',[AdminController::class, 'shopadminRequest'])->name('shopadmin.request.list');
@@ -106,7 +117,6 @@ Route::middleware(['auth', 'shopadmin'])->group(function () {
     Route::get('/delete/shop/{shop}', [ShopController::class, 'delete'])->name('shopadmin.delete.shop');
 
     //Product
-    Route::get('/productlist', [ProductController::class, 'productlist'])->name('product.productlist');
     Route::get('/addproduct', [ProductController::class, 'addindex'])->name('product.add');
     Route::post('/addproduct/create', [ProductController::class, 'createproduct'])->name('product.create');
     Route::get('/product/edit/{id}', [ProductController::class, 'productEdit'])->name('product.edit');

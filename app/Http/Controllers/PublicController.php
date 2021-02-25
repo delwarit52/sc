@@ -4,11 +4,53 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shopadmin\Shopadmindetail;
+use App\Models\Shopadmin\Shop;
+use App\Models\Shopadmin\Product;
+use App\Models\Admin\Category;
+use Auth;
 
 class PublicController extends Controller
 {
+    
+    public function index()
+    {
+        return view('home');
+    }
+
+    public function mall()
+    {
+        $shops = Shop::where('enterpreneur_type','Female')->latest()->limit(16)->get();
+        return view('malls',compact('shops'));
+    }
+
+    public function shop()
+    {
+        return view('shops');
+    }
+
+    public function womenEnterpreneur()
+    {
+        $shops = Shop::where('enterpreneur_type','Female')->paginate(24);
+        return view('women_enterpreneurs',compact('shops'));
+    }
+    // single shop
+    public function singleShop(Shop $shop)
+    {
+        $categories = Category::all();
+        return view('single_shop',compact('shop','categories'));
+    }
+    // public product
+    public function singleProduct(Product $product)
+    {
+        return view('single_product',compact('product'));
+    } 
+
+
     public function shopRequest()
     {
+        if(Auth::user()->user_type == 1 || Auth::user()->user_type ==2 ){
+            return redirect()->back();
+        }
         return view('shop_request');
     }
     
