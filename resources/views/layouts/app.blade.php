@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('../front/assets/image/favicon.ico')}}">
-    <title>smart city</title>
+    <title>@yield('title')</title>
     <!--=== ALL CSS Here ===-->
         <!--=== Bootstrap ===-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -12,6 +12,7 @@
     <!--=== Fontawesome icon ===-->
 	<link rel="stylesheet" href="{{ asset('../front/assets/css/fontawesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('../front/assets/css/all.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/meanmenu.css') }}">
 	<!--=== slick slider ===-->
 	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/slick.css') }}">
 	<link rel="stylesheet" href="{{ asset('../front/assets/css/plugin/slick-theme.css') }}">
@@ -50,7 +51,7 @@
 				<div class="col_xl_6 col-lg-6 col-md-6 col-sm-12 col-12">
 					<div class="top_mid_menu">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="{{ route('/') }}">Home</a></li>
 							<li>
 								<a href="#">Category <i class="fas fa-angle-down"></i></a>
 								<ul class="sub_menu">
@@ -75,13 +76,22 @@
 							@guest
 							<li><a href="{{ route('login') }}" class="log_btn"><i class="far fa-user"></i></a></li>
 							<li><a href="{{ route('register') }}" class="log_btn"><i class="fas fa-user-plus"></i></a></li>
+							{{-- <li><a href="add_listing.html" class="top_btn"><i class="fas fa-plus"></i> Add list</a></li> --}}
+							<li><a href="{{ route('shop.request') }}" class="top_btn"><i class="fas fa-plus"></i> Shop</a></li>
 
 							@else
 							<li><a href="{{ route('logout') }}" class="log_btn"><i class="fas fa-sign-out-alt"></i></a></li>
-								
+							@if(Auth::user()->user_type == 2)
+								<li><a href="{{ route('shopadmin.dashboard') }}" class="top_btn"><i class="fas fa-plus"></i> Dashboard</a></li>
+							@elseif(Auth::user()->user_type == 1)
+								<li><a href="{{ route('dashboard') }}" class="top_btn"><i class="fas fa-plus"></i> Dashboard</a></li>
+							@else
+							@if(!Auth::user()->user_type == 1)
+								<li><a href="{{ route('shop.request') }}" class="top_btn"><i class="fas fa-plus"></i> Shop</a></li>
+							@endif
+							@endif
+							
 							@endguest
-							{{-- <li><a href="add_listing.html" class="top_btn"><i class="fas fa-plus"></i> Add list</a></li> --}}
-							<li><a href="{{ route('shop.request') }}" class="top_btn"><i class="fas fa-plus"></i> Shop</a></li>
 						</ul>
 					</div>
 				</div>
@@ -97,7 +107,7 @@
 	</section>
 	<!-- Find AREA END -->
 	<!-- FOOTER AREA START -->
-	<section class="sm_footer_area sm_section_padding">
+	<section class="sm_footer_area sm_section_padding" style="padding:40px 0px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 px-3 px-lg-3 px-md-0">
@@ -240,7 +250,25 @@
 	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 	<script src="assets/js/plugin/ziehharmonika.js"></script>
     <!--=== Custom JS ===-->
-    <script src="{{ asset('../front/assets/js/main.js') }}"></script>
+    <script src="{{ asset('../front/assets/js/main.js') }}"></script>      
+	<script>
+		$(function () {
+			$('.input_apand').on('click',function(){
+				var $qty=$(this).closest('.product_quentyti').find('.qty');
+				var currentVal = parseInt($qty.val());
+				if (!isNaN(currentVal)) {
+					$qty.val(currentVal + 1);
+				}
+			});
+			$('.input_prepand').on('click',function(){
+				var $qty=$(this).closest('.product_quentyti').find('.qty');
+				var currentVal = parseInt($qty.val());
+				if (!isNaN(currentVal) && currentVal > 1) {
+					$qty.val(currentVal - 1);
+				}
+			});
+		});
+		</script>
 
 
 

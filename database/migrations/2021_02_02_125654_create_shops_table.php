@@ -19,6 +19,7 @@ class CreateShopsTable extends Migration
             $table->integer('shopmall_id')->nullable();
             $table->string('name');
             $table->integer('phone');
+            $table->string('enterpreneur_type');
             $table->string('logo');
             $table->string('slider_image');
             $table->string('cover_image');

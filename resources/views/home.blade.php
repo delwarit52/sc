@@ -3,7 +3,7 @@
 @section('content')
 
 	<!-- SMART CITY  AREA START -->
-	<section class="smart_city_area" data-background="assets/image/smart_city_object/1540.jpg">
+	<section class="smart_city_area" data-background="{{ asset('../front/assets/image/smart_city_object/1540.jpg') }}">
 		<div class="container-fluid">
 			<h1>Smart city for life</h1>
 			<div class="search_box">
@@ -328,7 +328,7 @@
 				<ul>
 					<li><a href="smart_house.html"><i class="fas fa-home"></i><br/><span>Smart houses</span></a></li>
 					<li><a href="education.html"><i class="fas fa-graduation-cap"></i><br/><span>Education</span></a></li>
-					<li><a href="int_shopping.html"><i class="fas fa-shopping-cart"></i><br/><span>shopping</span></a></li>
+					<li><a href="{{ route('malls') }}"><i class="fas fa-shopping-cart"></i><br/><span>shopping</span></a></li>
 					<li><a href="hotel.html"><i class="fas fa-hotel"></i><br/><span>Hotel</span></a></li>
 					<li><a href="hospital.html"><i class="fas fa-clinic-medical"></i><br/><span>Hospital</span></a></li>
 					<li><a href="restaurant.html"><i class="fas fa-utensils"></i><br/><span>Restaurant</span></a></li>
@@ -340,7 +340,7 @@
 	<!-- SMART CITY AREA END -->
 
 	<!-- Find AREA START -->
-	<section class="sm_find_area sm_section_padding">
+	{{-- <section class="sm_find_area sm_section_padding">
 		<div class="container">
 			<div class="section_titel text-center wow fadeInUp">
 				<h4><span>Find by</span> location</h4>
@@ -434,11 +434,11 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- Find AREA END -->
 
 	<!-- Choose Area Start -->
-	<section class="choose-area sm_section_padding">
+	{{-- <section class="choose-area sm_section_padding">
 		<div class="container">
 			<div class="section_titel text-center wow fadeInUp">
 				<h4><span>Why Choose </span>Us</h4>
@@ -488,11 +488,11 @@
 		<div class="shape">
 			<img src="assets/image/main_home/shape_5.png" alt="">
 		</div>
-	</section>
+	</section> --}}
 	<!-- Choose Area End -->
 
 	<!-- Video Area Start -->
-	<section class="video-section sm_section_padding">
+	{{-- <section class="video-section sm_section_padding">
 		<div class="container">
 			<div class="section_titel text-center wow fadeInUp">
 				<h4><span>How It </span>Works</h4>
@@ -585,6 +585,6 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- NEWSLETTER AREA END -->
 @endsection

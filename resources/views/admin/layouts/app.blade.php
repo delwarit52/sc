@@ -17,7 +17,6 @@
 
     <!-- C3 charts css -->
     <link href="{{ asset('back/plugins/c3/c3.min.css') }}" rel="stylesheet" type="text/css" />
-
     
     <!--=== Fontawesome icon ===-->
     <link rel="stylesheet" href="{{ asset('back/css/fontawesome.min.css') }}">
@@ -100,6 +99,11 @@
                 <ul class="list-inline float-right mb-0">
                     <li class="list-inline-item dropdown notification-list">
                         <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item dropdown notification-list">
+                        <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="dripicons-bell noti-icon"></i>
                             <span class="badge badge-pink noti-icon-badge">4</span>
                         </a>
@@ -177,7 +181,7 @@
                     <li class="menu sm_header_area">
                         <div class="top_mid_menu">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="{{ route('/') }}">Home</a></li>
                                 <li>
                                     <a href="#">Category <i class="fas fa-angle-down"></i></a>
                                     <ul class="sub_menu">
@@ -195,22 +199,6 @@
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div>
-                <div class="col_xl_3 col-lg-3 col-md-6 col-sm-6 col-6">
-                    <div class="top_bar_right">
-                        <ul>
-                            @guest
-                            <li><a href="{{ route('login') }}" class="log_btn"><i class="far fa-user"></i></a></li>
-                            <li><a href="{{ route('register') }}" class="log_btn"><i class="fas fa-user-plus"></i></a></li>
-
-                            @else
-                            <li><a href="{{ route('logout') }}" class="log_btn"><i class="fas fa-sign-out-alt"></i></a></li>
-                                
-                            @endguest
-                            {{-- <li><a href="add_listing.html" class="top_btn"><i class="fas fa-plus"></i> Add list</a></li> --}}
-                            <li><a href="{{ route('shop.request') }}" class="top_btn"><i class="fas fa-plus"></i> Shop</a></li>
-                        </ul>
-                    </div>
-                </div>
                     </li>
                     <!-- HEADER AREA END-->
                 </ul>
@@ -252,23 +240,11 @@
                         @endif
 
                         @if(Auth::user()->user_type ==2)
-                        
                         <li>
                             <a href="{{ route('shopadmin.dashboard') }}"><i class="fi-layers"></i> <span> Dashboard </span></a>
                         </li>
                         <li>
-                            <a href="">
-                                <i class="fi-air-play"></i>
-                                <span> Shop </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="nav-second-level" aria-expanded=false>
-                                <li><a href="{{ route('shopadmin.shop.list') }}">Shop List</a></li>
-                                <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="">
+                            <a href="javascript: void(0);">
                                 <i class="fi-air-play"></i>
                                 <span> Product </span>
                                 <span class="menu-arrow"></span>
@@ -276,6 +252,17 @@
                             <ul class="nav-second-level" aria-expanded=false>
                                 <li><a href="{{ route('product.add') }}">Add Product</a></li>
                                 <li><a href="{{ route('product.productlist') }}">Product List</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fi-air-play"></i>
+                                <span> Shop </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded=false>
+                                <li><a href="{{ route('shopadmin.shop.list') }}">Shop List</a></li>
+                                <li><a href="{{ route('shopadmin.shop.create') }}">Shop Create</a></li>
                             </ul>
                         </li>
                         @endif

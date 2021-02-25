@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label">Product Brand</label>
+                                    <label class="col-2 col-form-label">Brand</label>
                                     <div class="col-10">
                                         <select class="form-control select-brand_id @error('brand') is-invalid  @enderror" name="brand_id">
                                             @foreach($brands  as $brand)
@@ -91,6 +91,17 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-2 col-form-label" for="product-name">Product Code</label>
+                                    <div class="col-10">
+                                        <input type="text" id="product-code" name="code" class="form-control @error('code') is-invalid  @enderror" placeholder="Product Code" value="{{ old('code') }}">
+                                        @error('code')
+                                            <span class="invalid-feedback text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group">
@@ -98,7 +109,7 @@
                                         
                                         <div class="fileupload fileupload-new text-center" data-provides="fileupload">
                                             <div class="fileupload-new thumbnail" style="width: 100%; height: 200px; line-height: 20px;">
-                                                <img src="assets/images/small/img-1.jpg" alt="image"  style="width: 100%; height: 200px; line-height: 20px;" />
+                                                <img src="{{ asset('back/images/smartcityslide_3.jpg') }}" alt="image"  style="width: 100%; height: 200px; line-height: 20px;" />
                                             </div>
                                             <div class="fileupload-preview fileupload-exists thumbnail" style="width: 100%; height: 200px; line-height: 20px;"></div>
                                             @error('image')
@@ -108,9 +119,9 @@
                                             @enderror
                                             <div class="d-flex justify-content-center">
                                                 <button type="button" class="btn btn-secondary btn-file">
-                                                    <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select Shop Cover Image</span>
+                                                    <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Shop Cover Image</span>
                                                     <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                                    <input type="file" class="btn-secondary  @error('image') is-invalid  @enderror" name="image" accept=".jpg,.gif,.png" />
+                                                    <input type="file" class="btn-secondary  @error('image') is-invalid  @enderror" name="image" accept=".jpg,.gif,.png" required/>
                                                 </button>
                                             </div>
                                         </div>
@@ -123,7 +134,7 @@
                         <div class="row">
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label">Select Category</label>
+                                    <label class="col-2 col-form-label">Category</label>
                                     <div class="col-10">
                                         <select class="form-control select-product_category_id @error('product_category_id') is-invalid  @enderror" name="product_category_id">
                                             @foreach($categories  as $category)
@@ -145,7 +156,7 @@
                             </div>
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label">Select Subcategory</label>
+                                    <label class="col-2 col-form-label">Subcategory</label>
                                     <div class="col-10">
                                         <select class="form-control select-product_subcategory_id @error('product_subcategory_id') is-invalid  @enderror" name="product_subcategory_id">
                                             
@@ -171,7 +182,7 @@
                         <div class="row">
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label" for="product_price">Product Price</label>
+                                    <label class="col-2 col-form-label" for="product_price">Price</label>
                                     <div class="col-10">
                                         <input type="number" id="product_price" name="product_price" value="{{ old('product_price') }}" class="form-control @error('product_price') is-invalid  @enderror" placeholder="Product Price">
                                         @error('product_price')
@@ -184,12 +195,13 @@
                             </div>
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label" for="product-price-discount">Product Price Discount(%)</label>
+                                    <label class="col-2 col-form-label" for="product-price-discount">Discount(%)</label>
                                     <div class="col-10">
                                         <input type="number" id="product-price-discount" name="product_price_discount" value="{{ old('product_price_discount') }}" class="form-control @error('product_price_discount') is-invalid  @enderror" placeholder="Product Price Discount(%)">
                                         @error('product_price_discount')
                                             <span class="invalid-feedback text-danger" role="alert">
-                                                <strong>{{ $message }}</strong>
+                                                <strong>The product price discount may not be greater than 99%.
+                                                </strong>
                                             </span>
                                         @enderror
                                     </div>
@@ -200,7 +212,7 @@
                         <div class="row">
                             <div class="col col-sm-12 col-md-12">
                                 <div class="form-group row">
-                                    <label class="col-2 col-form-label" for="product-small-description">Product Small Description (100 character)</label>
+                                    <label class="col-2 col-form-label" for="product-small-description">Small Description (100 character)</label>
                                     <div class="col-10">
                                         <textarea name="product_small_description" value="{{ old('product_small_description') }}" id="" cols="10" class="form-control @error('product_small_description') is-invalid  @enderror"></textarea>
                                         @error('product_small_description')
@@ -216,7 +228,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="m-b-30 m-t-0 header-title">Product Full Description</h4>
+                                    <h4 class="m-b-30 m-t-0 header-title">Full Description</h4>
                                     <textarea id="elm1" name="product_full_description" value="{{ old('product_full_description') }}" class="@error('product_full_description') is-invalid  @enderror"></textarea>
                                     @error('product_full_description')
                                         <span class="invalid-feedback text-danger" role="alert">
@@ -230,7 +242,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card-box">
-                                    <h4 class="m-b-30 m-t-0 header-title">Product Shipping And Return Process</h4>
+                                    <h4 class="m-b-30 m-t-0 header-title">Shipping And Return Process</h4>
                                     <textarea id="elm1" name="product_shipping_and_return" value="{{ old('product_shipping_and_return') }}" class="@error('product_shipping_and_return') is-invalid  @enderror"></textarea>
                                     @error('product_shipping_and_return')
                                         <span class="invalid-feedback text-danger" role="alert">
@@ -243,7 +255,7 @@
 
                         <div class="row">
                             <div class="col-12 d-flex justify-content-between">
-                                <a href="{{ route('product.add') }}" class="btn btn-warning">Reset</a>
+                                <a href="" class="btn btn-warning">Reset</a>
                                 <button type="submit" class="btn btn-primary">Next</button>
                             </div>
                         </div>

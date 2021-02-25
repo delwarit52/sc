@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
 use App\Models\Shopadmin\Shop;
+use App\Models\Shopadmin\Product;
 use Auth;
 
 class ShopController extends Controller
 {
     public function shopDashboard()
     {
-        return view('shopadmin.index');
+        $shops = Shop::where('user_id',Auth::id())->get();
+        return view('shopadmin.index',compact('shops','products'));
     }
     public function shopIndex()
     {
@@ -81,11 +83,22 @@ class ShopController extends Controller
 
     public function shopUpdate(Request $request,Shop $shop)
     {
-        if($shop->slider_image){
-            foreach(json_decode($shop->slider_image) as $slider_image){
-                unlink('file/'.$slider_image);
-            }
-        }
+        // if($shop->slider_image){
+        //     foreach(json_decode($shop->slider_image) as $slider_image){
+        //         unlink('file/'.$slider_image);
+        //     }
+        // }
+
+        Request()->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'logo' => '',
+            'cover_image' => '',
+            'offer_image' => '',
+            'floor' => 'required',
+            'shop_no' => 'required',
+            'slider_image' => '',
+        ]);
 
         if($request->hasFile('slider_image')){
             foreach($request->file('slider_image') as $image)
@@ -94,6 +107,28 @@ class ShopController extends Controller
                 $image->move(public_path('file'),$name);
                 $data[] = $name;
             }
+        }
+        $shop->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'floor' => $request->floor,
+            'shop_no' => $request->shop_no,
+            'slider_image' =>json_encode($data),
+        ]);
+        if($request->logo){    
+            $shop->update([
+                'logo' => $request->logo,
+            ]);
+        }
+        if($request->cover_image){    
+            $shop->update([
+                'cover_image' => $request->cover_image,
+            ]);
+        }
+        if($request->offer_image){    
+            $shop->update([
+                'offer_image' => $request->offer_image,
+            ]);
         }
         
         $shop->update([
@@ -158,21 +193,21 @@ class ShopController extends Controller
     }
 
     
-    // private function validateRequest()
-    // {
-    //     return request()->validate([
-    //         'shopmall_id' => 'required',
-    //         'user_id' => 'required',
-    //         'name' => 'required',
-    //         'phone' => 'required',
-    //         'logo' => 'required',
-    //         'cover_image' => 'required',
-    //         'offer_image' => 'required',
-    //         'floor' => 'required',
-    //         'shop_no' => 'required',
-    //         'slider_image' => 'required',
-    //     ]);
-    // }
+    private function validateRequest()
+    {
+        return request()->validate([
+            'shopmall_id' => 'required',
+            'user_id' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'logo' => 'required',
+            'cover_image' => 'required',
+            'offer_image' => 'required',
+            'floor' => 'required',
+            'shop_no' => 'required',
+            'slider_image' => 'required',
+        ]);
+    }
 
 
     private function storeImage($shop)

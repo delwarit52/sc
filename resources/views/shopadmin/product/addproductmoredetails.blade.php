@@ -34,8 +34,8 @@
                 <div class="p-20">
                     <form form action="{{ route('product.detail.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        {{-- <input type="hidden" value="{{ $product_id }}" name="product_id"> --}}
-                        <input type="hidden" value="1" name="product_id">
+                        <input type="text" value="{{ $product_id }}" name="product_id">
+                        {{-- <input type="hidden" value="1" name="product_id"> --}}
                         <div class="row">
                             <div class="col col-sm-12 col-md-6">
                                 <div class="form-group row">
