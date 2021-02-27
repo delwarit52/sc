@@ -101,10 +101,8 @@
 <!-- HEADER AREA END-->
 
 	<!-- Find AREA START -->
-	<section class="sm_find_area sm_section_padding">
 		
     @yield('content')
-	</section>
 	<!-- Find AREA END -->
 	<!-- FOOTER AREA START -->
 	<section class="sm_footer_area sm_section_padding" style="padding:40px 0px;">

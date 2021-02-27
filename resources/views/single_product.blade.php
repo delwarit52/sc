@@ -4,7 +4,7 @@
 @section('content')
 
 <!-- HEADER AREA START-->
-<header class="header_area store_header_area" style="margin-top:100px;">
+<header class="header_area store_header_area sm_section_padding">
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-6">

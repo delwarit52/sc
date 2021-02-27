@@ -53,6 +53,7 @@ class ShopController extends Controller
             'cover_image' => $request->cover_image,
             'offer_image' => $request->offer_image,
             'floor' => $request->floor,
+            'enterpreneur_type' => $request->enterpreneur_type,
             'shop_no' => $request->shop_no,
             'slider_image' =>json_encode($data),
         ]);
@@ -108,13 +109,13 @@ class ShopController extends Controller
                 $data[] = $name;
             }
         }
-        $shop->update([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'floor' => $request->floor,
-            'shop_no' => $request->shop_no,
-            'slider_image' =>json_encode($data),
-        ]);
+        // $shop->update([
+        //     'name' => $request->name,
+        //     'phone' => $request->phone,
+        //     'floor' => $request->floor,
+        //     'shop_no' => $request->shop_no,
+        //     'slider_image' =>json_encode($data),
+        // ]);
         if($request->logo){    
             $shop->update([
                 'logo' => $request->logo,
@@ -139,6 +140,7 @@ class ShopController extends Controller
             'offer_image' => $request->offer_image,
             'floor' => $request->floor,
             'shop_no' => $request->shop_no,
+            'enterpreneur_type' => $request->enterpreneur_type,
             'slider_image' =>json_encode($data),
         ]);
 
@@ -205,6 +207,7 @@ class ShopController extends Controller
             'offer_image' => 'required',
             'floor' => 'required',
             'shop_no' => 'required',
+            'enterpreneur_type' => 'required',
             'slider_image' => 'required',
         ]);
     }
