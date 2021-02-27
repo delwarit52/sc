@@ -73,13 +73,28 @@
                                         </span>
                                     @enderror
                                 </div>
+
+                                <label class="col-2 col-form-label" for="example-enterpreneur_type">Enterpreneur Type</label>
+                                <div class="col-4">
+                                    <select type="text" id="example-enterpreneur_type" name="enterpreneur_type" value="{{ $shop->enterpreneur_type }}" class="form-control @error('enterpreneur_type') is-invalid  @enderror">
+                                        <option disabled>Select Enterpreneur Type</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </select>
+                                    @error('enterpreneur_type')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
                             
                             <div class="form-group row">
                                 <div class="col-4">
                                     <label class="col-2 col-form-label" for="example-logo">logo</label>
                                     <input type="file" id="example-logo" name="logo" class="form-control @error('logo') is-invalid  @enderror" placeholder="Shop logo file" onchange="Logo(this)">
-                                    <input type="hidden" name="old_logo" value="{{ $shop->logo }}" required>
+                                    <input type="hidden" name="old_logo" value="{{ $shop->logo }}">
                                     @error('logo')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -90,7 +105,7 @@
                                 </div>
                                 <div class="col-4">
                                     <label class="col-form-label" for="example-cover_image">Cover Image</label>
-                                    <input type="file" id="example-cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid  @enderror" placeholder="Shop Cover Image" onchange="CoverImage(this)" required> 
+                                    <input type="file" id="example-cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid  @enderror" placeholder="Shop Cover Image" onchange="CoverImage(this)"> 
                                     @error('cover_image')
                                         <span class="invalid-feedback" role="alert" >
                                             <strong>{{ $message }}</strong>
@@ -103,7 +118,7 @@
                                 </div>
                                 <div class="col-4">
                                     <label class="col-form-label" for="example-offer_image">Offer Image</label>
-                                    <input type="file" id="example-offer_image" name="offer_image" class="form-control @error('offer_image') is-invalid  @enderror" placeholder="Shop Offer Image" onchange="OfferImage(this)" required>
+                                    <input type="file" id="example-offer_image" name="offer_image" class="form-control @error('offer_image') is-invalid  @enderror" placeholder="Shop Offer Image" onchange="OfferImage(this)">
                                     @error('offer_image')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
