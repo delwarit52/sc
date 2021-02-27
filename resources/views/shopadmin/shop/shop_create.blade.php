@@ -66,7 +66,11 @@
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="example-floor">Enterpreneur Type</label>
                                 <div class="col-4">
-                                    <input type="text" id="example-floor" name="enterpreneur_type" class="form-control @error('enterpreneur_type') is-invalid  @enderror" placeholder="Shop Number">
+                                    <select type="text" id="example-floor" name="enterpreneur_type" class="form-control @error('enterpreneur_type') is-invalid  @enderror" placeholder="Shop Number">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </select>
                                     @error('enterpreneur_type')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -89,7 +93,7 @@
                                 <label class="col-2 col-form-label" for="example-email">Category</label>
                                 <div class="col-10">
                                     <select class="form-control selectpicker" name="category[]" required="" multiple data-live-search="true">
-                                        <option value="">select a category</option>
+                                        <option disabled>select a category</option>
                                         @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach

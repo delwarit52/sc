@@ -395,11 +395,18 @@
                                 </p>
                             </div>
                             <div class="product_size">
-                                <label>size :</label>
+                                <label>Size :</label>
                                 <div class="form">
                                     <select class="form-control" name="select a size">
                                         @foreach($product->productdetail as $size)
-                                        <option value="">Select a size</option>
+                                        <option>{{ $size->size }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <label class="ml-3">Color :</label>
+                                <div class="form">
+                                    <select class="form-control" name="select a size">
+                                        @foreach($product->productdetail as $size)
                                         <option>{{ $size->size }}</option>
                                         @endforeach
                                     </select>

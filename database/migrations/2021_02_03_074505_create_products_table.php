@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('product_category_id');
             $table->unsignedBigInteger('product_subcategory_id');
             $table->float('product_price');
-            $table->float('product_price_discount'->nullable());
+            $table->float('product_price_discount')->nullable();
             $table->string('product_small_description');
             $table->string('product_full_description');
             $table->string('product_shipping_and_return');

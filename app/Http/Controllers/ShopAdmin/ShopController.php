@@ -84,22 +84,8 @@ class ShopController extends Controller
 
     public function shopUpdate(Request $request,Shop $shop)
     {
-        // if($shop->slider_image){
-        //     foreach(json_decode($shop->slider_image) as $slider_image){
-        //         unlink('file/'.$slider_image);
-        //     }
-        // }
 
-        Request()->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'logo' => '',
-            'cover_image' => '',
-            'offer_image' => '',
-            'floor' => 'required',
-            'shop_no' => 'required',
-            'slider_image' => '',
-        ]);
+
 
         if($request->hasFile('slider_image')){
             foreach($request->file('slider_image') as $image)
@@ -109,13 +95,18 @@ class ShopController extends Controller
                 $data[] = $name;
             }
         }
-        // $shop->update([
-        //     'name' => $request->name,
-        //     'phone' => $request->phone,
-        //     'floor' => $request->floor,
-        //     'shop_no' => $request->shop_no,
-        //     'slider_image' =>json_encode($data),
-        // ]);
+        if($shop->slider_image){
+            foreach(json_decode($shop->slider_image) as $slider_image){
+                unlink('file/'.$slider_image);
+            }
+        }
+        $shop->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'floor' => $request->floor,
+            'shop_no' => $request->shop_no,
+            'slider_image' =>json_encode($data),
+        ]);
         if($request->logo){    
             $shop->update([
                 'logo' => $request->logo,
@@ -132,17 +123,7 @@ class ShopController extends Controller
             ]);
         }
         
-        $shop->update([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'logo' => $request->logo,
-            'cover_image' =>$request->cover_image,
-            'offer_image' => $request->offer_image,
-            'floor' => $request->floor,
-            'shop_no' => $request->shop_no,
-            'enterpreneur_type' => $request->enterpreneur_type,
-            'slider_image' =>json_encode($data),
-        ]);
+        
 
         $this->updateImage($shop);
 
@@ -244,30 +225,33 @@ class ShopController extends Controller
     private function updateImage($shop)
     {
         if(request()->has('logo')){
-            if(request()->old_logo){
-                unlink('storage/'.request()->old_logo);
-            }
+           
             $shop->update([
                 'logo' => request()->logo->store('shopadmin/shop/logo','public'),
             ]);
+            if(request()->old_logo){
+                unlink('storage/'.request()->old_logo);
+            }
         }
 
         if(request()->has('cover_image')){
-            if(request()->old_cover_image){
-                unlink('storage/'.request()->old_cover_image);
-            }
+          
             $shop->update([
                 'cover_image' => request()->cover_image->store('shopadmin/shop/cover_image','public'),
             ]);
+            if(request()->old_cover_image){
+                unlink('storage/'.request()->old_cover_image);
+            }
         }
         
         if(request()->has('offer_image')){
-            if(request()->old_offer_image){
-                unlink('storage/'.request()->old_offer_image);
-            }
+          
             $shop->update([
                 'offer_image' => request()->offer_image->store('shopadmin/shop/offer_image','public'),
             ]);
+            if(request()->old_offer_image){
+                unlink('storage/'.request()->old_offer_image);
+            }
         }
         
     }
