@@ -33,8 +33,16 @@ class ShopController extends Controller
 
     public function shopStore(Request $request)
     {
-    	Request()->validate([
+    	$request->validate([
     		'category' => '',
+            'name' => 'required',
+            'slug' => 'required',
+            'phone' => 'required',
+            'floor' => 'required',
+            'enterpreneur_type' => 'required',
+            'logo' => 'required|dimensions:min_width=250,min_height=250',
+            'cover_image' => 'required|dimensions:min_width=250,min_height=185',
+            'offer_image' => 'required|dimensions:min_width=275,min_height=160',
         ]);
         
         if($request->hasFile('slider_image')){
@@ -49,6 +57,7 @@ class ShopController extends Controller
         $shop = Shop::create([
             'user_id' => $request->user_id,
             'name' => $request->name,
+            'slug' => $request->slug,
             'phone' => $request->phone,
             'logo' => $request->logo,
             'cover_image' => $request->cover_image,
@@ -103,6 +112,7 @@ class ShopController extends Controller
         }
         $shop->update([
             'name' => $request->name,
+            'slug' => $request->slug,
             'phone' => $request->phone,
             'floor' => $request->floor,
             'shop_no' => $request->shop_no,
