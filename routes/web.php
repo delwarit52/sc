@@ -35,8 +35,8 @@ Route::get('/', [PublicController::class, 'index'])->name('/');
 Route::get('malls',[PublicController::class,'mall'])->name('malls');
 Route::get('women/enterpreneurs',[PublicController::class,'womenEnterpreneur'])->name('women.enterpreneurs');
 Route::get('shops',[PublicController::class,'shop'])->name('shops');
-Route::get('single/shop/{shop}',[PublicController::class,'singleShop'])->name('single.shop');
-Route::get('single/product/{product}',[PublicController::class,'singleProduct'])->name('single.product');
+Route::get('single/shop/{slug}',[PublicController::class,'singleShop'])->name('single.shop');
+Route::get('single/product/{slug}',[PublicController::class,'singleProduct'])->name('single.product');
 Auth::routes();
 
 Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout'])->name('logout');

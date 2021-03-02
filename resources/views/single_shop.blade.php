@@ -514,7 +514,7 @@
                             <ul>
                                 @foreach($shop->product as $product)
                                 <li class="store_ctn">
-                                    <a href="single_product.html">
+                                    <a href="{{ route('single.product',$product->slug) }}">
                                         <div class="card wow fadeInRight">
                                             <div class="shopping_mall_box">
                                                 <div class="shop_mall_img">
@@ -522,7 +522,7 @@
                                                     <div class="hover_ctn">
                                                         <ul>
                                                             <li>
-                                                                <a href="{{ route('single.product',$product->id) }}">
+                                                                <a href="{{ route('single.product',$product->slug) }}">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="442.04px" height="442.04px" viewBox="0 0 442.04 442.04" style="enable-background:new 0 0 442.04 442.04;" xml:space="preserve">
                                                                         <g>
                                                                             <g>

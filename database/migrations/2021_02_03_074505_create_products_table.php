@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('shop_id');
             $table->string('name');
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('brand_id');
             $table->string('image');//coverimg
             $table->unsignedBigInteger('product_category_id');

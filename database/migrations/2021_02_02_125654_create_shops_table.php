@@ -18,7 +18,8 @@ class CreateShopsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->integer('shopmall_id')->nullable();
             $table->string('name');
-            $table->mediumInteger('phone')->lenght(15);
+            $table->string('slug')->unique();
+            $table->string('phone')->lenght(15);
             $table->string('enterpreneur_type');
             $table->string('logo');
             $table->text('slider_image');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
+use Image;
 
 
 class CategoryController extends Controller
@@ -98,6 +99,8 @@ class CategoryController extends Controller
     		$category->update([
     			'image' => request()->image->store('admin/category','public'),
     		]);
+            $resize = Image::make('storage/'.$category->image)->resize(300,300);
+            $resize->save();
     	}
 	}
 	
@@ -112,8 +115,8 @@ class CategoryController extends Controller
                 'image' => request()->image->store('admin/category','public'),
             ]);
 
-            // $resize = Image::make('storage/app/public/'.$category->image)->resize(300,300);
-            // $resize->save();
+            $resize = Image::make('storage/'.$category->image)->resize(300,300);
+            $resize->save();
         }
     }
 

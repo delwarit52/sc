@@ -21,7 +21,7 @@
 </section>
 <!--===  Inner Banner Area End ===-->
 <!-- SHOPPING CENTER AREA START -->
-<section class="shopping_center_area section_padding">
+{{-- <section class="shopping_center_area section_padding">
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 px-1">
@@ -65,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> --}}
 <!-- SHOPPING CENTER AREA END -->
 <!-- SHOPPING CENTER AREA START -->
 <section class="shopping_center_area section_padding">
@@ -83,7 +83,7 @@
 						<ul>
                             @foreach($shops as $shop)
 							<li>
-								<a href="{{ route('single.shop',$shop->id) }}">
+								<a href="{{ route('single.shop',$shop->slug) }}">
 									<div class="card wow fadeInRight">
 										<div class="shopping_mall_box">
 											<div class="shop_mall_img">

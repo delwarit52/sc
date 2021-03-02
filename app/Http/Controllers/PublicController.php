@@ -34,14 +34,16 @@ class PublicController extends Controller
         return view('women_enterpreneurs',compact('shops'));
     }
     // single shop
-    public function singleShop(Shop $shop)
+    public function singleShop($slug)
     {
+        $shop = Shop::where('slug',$slug)->first();
         $categories = Category::all();
         return view('single_shop',compact('shop','categories'));
     }
     // public product
-    public function singleProduct(Product $product)
+    public function singleProduct($slug)
     {
+        $product = Product::where('slug',$slug)->first();
         return view('single_product',compact('product'));
     } 
 

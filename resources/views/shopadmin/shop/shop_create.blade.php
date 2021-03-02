@@ -33,9 +33,20 @@
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="example-email">Name</label>
                                 <div class="col-10">
-                                    <input type="text" id="example-name" name="name" class="form-control  @error('name') is-invalid  @enderror" placeholder="Shop Name" required>
+                                    <input type="text" id="example-name" name="name" class="form-control  @error('name') is-invalid  @enderror" placeholder="Shop Name">
                                     @error('name')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="example-email">slug</label>
+                                <div class="col-10">
+                                    <input type="text" id="example-slug" name="slug" class="form-control  @error('slug') is-invalid  @enderror" placeholder="Shop slug">
+                                    @error('slug')
+                                        <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -46,7 +57,7 @@
                                 <div class="col-4">
                                     <input type="number" id="example-phone" name="phone" class="form-control @error('phone') is-invalid  @enderror" placeholder="Shop Phone Number">
                                     @error('phone')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -55,7 +66,7 @@
                                 <div class="col-4">
                                     <input type="number" id="example-shop_no" name="shop_no" class="form-control @error('shop_no') is-invalid  @enderror" placeholder="Shop Number">
                                     @error('shop_no')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -72,7 +83,7 @@
                                         <option>Other</option>
                                     </select>
                                     @error('enterpreneur_type')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -82,7 +93,7 @@
                                 <div class="col-4">
                                     <input type="text" id="example-floor" name="floor" class="form-control @error('floor') is-invalid  @enderror" placeholder="Shop Number">
                                     @error('floor')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -92,14 +103,14 @@
                             <div class="form-group row">
                                 <label class="col-2 col-form-label" for="example-email">Category</label>
                                 <div class="col-10">
-                                    <select class="form-control selectpicker" name="category[]" required="" multiple data-live-search="true">
+                                    <select class="form-control selectpicker" name="category[]"="" multiple data-live-search="true">
                                         <option disabled>select a category</option>
                                         @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('category')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
@@ -109,31 +120,31 @@
                             
                             <div class="form-group row">
                                 <div class="col-4">
-                                    <label class="col-2 col-form-label" for="example-logo">logo</label>
-                                    <input type="file" id="example-logo" name="logo" class="form-control @error('logo') is-invalid  @enderror" placeholder="Shop logo file" onchange="Logo(this)" required>
+                                    <label class="col-form-label" for="example-logo">Cover Logo <span class="text-danger">(Dimension:250x250)</span></label>
+                                    <input type="file" id="example-logo" name="logo" class="form-control @error('logo') is-invalid  @enderror" placeholder="Shop logo file" onchange="Logo(this)">
                                     @error('logo')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                        <span class="invalid-feedback text-danger" role="alert">
+                                            <strong>*Height:250 *width:250</strong>
                                         </span>
                                     @enderror
                                     
                                     <img class="ml-5" src="" alt="" id="logo">
                                 </div>
                                 <div class="col-4">
-                                    <label class="col-form-label" for="example-cover_image">Cover Image</label>
-                                    <input type="file" id="example-cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid  @enderror" placeholder="Shop Cover Image" onchange="CoverImage(this)" required> 
+                                    <label class="col-form-label" for="example-cover_image">Cover Image <span class="text-danger">(Dimension:250x250)</span></label>
+                                    <input type="file" id="example-cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid  @enderror" placeholder="Shop Cover Image" onchange="CoverImage(this)"> 
                                     @error('cover_image')
-                                        <span class="invalid-feedback" role="alert" >
+                                        <span class="invalid-feedback text-danger" role="alert" >
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                     <img class="ml-5" src="" alt="" id="coverimage">
                                 </div>
                                 <div class="col-4">
-                                    <label class="col-form-label" for="example-offer_image">Offer Image</label>
+                                    <label class="col-form-label" for="example-offer_image">Offer Image <span class="text-danger">(Dimension:250x250)</span></label>
                                     <input type="file" id="example-offer_image" name="offer_image" class="form-control @error('offer_image') is-invalid  @enderror" placeholder="Shop Offer Image" onchange="OfferImage(this)">
                                     @error('offer_image')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span class="invalid-feedback text-danger" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
