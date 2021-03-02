@@ -21,9 +21,9 @@ class CreateShopsTable extends Migration
             $table->mediumInteger('phone')->lenght(15);
             $table->string('enterpreneur_type');
             $table->string('logo');
-            $table->string('slider_image');
+            $table->text('slider_image');
             $table->string('cover_image');
-            $table->string('offer_image');
+            $table->string('offer_image')->nullable();
             $table->string('floor');
             $table->string('shop_no');
             $table->integer('status')->default(1);

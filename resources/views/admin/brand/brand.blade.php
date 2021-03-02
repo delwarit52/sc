@@ -1,8 +1,6 @@
 @extends('admin.layouts.app')
-@section('title','brand')
+@section('title','Brand')
 @section('content')
-
-
 
 <!-- BREADCRUMB-->
     

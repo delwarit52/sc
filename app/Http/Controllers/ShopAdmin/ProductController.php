@@ -10,6 +10,7 @@ use App\Models\Admin\Brand;
 use App\Models\Admin\Subcategory;
 use App\Models\Shopadmin\Product;
 use App\Models\Shopadmin\Productdetail;
+use Session;
 use Auth;
 
 class ProductController extends Controller
@@ -77,7 +78,7 @@ class ProductController extends Controller
     public function createproduct(Request $request)
     {
         // return "Hello Create";
-        $this->validateRequest();
+        // $this->validateRequest();
         
         $product = Product::create($this->validateRequest());
         $this->storeImage($product);
@@ -86,8 +87,8 @@ class ProductController extends Controller
 	            'messege' => 'Product added Successful',
 	            'alert-type' => 'success',
 	        );
-    		// return redirect()->back()->with($notification);
-            return view('shopadmin.product.addproductmoredetails', ['notification' => $notification, 'product_id' => $product->id]);
+            Session::put('product_id', $product->id);
+            return redirect('product/productdetail');
     	}else{
     		$notification = array(
 	            'messege' => 'Ups..Product not Added',
@@ -187,9 +188,21 @@ class ProductController extends Controller
             $subcategory->update([
                 'image' => request()->image->store('shopadmin/product','public'),
             ]);
-            // $resize = Image::make('storage/app/public/'.$subcategory->image)->resize(300,300);
+            // $resize = Image::make('storage/app/public/'.$subcategory->image)->resize(255,180);
             // $resize->save();
         }
     }
+
+
+
+    // public function fetchDist($id){
+    //     $category = Category::where('division_id',$id)->get();
+    //     return json_encode($category);
+    // }
+
+    // public function fetchupzila($id){
+    //     $subcategory = Subcategory::where('district_id',$id)->get();
+    //     return json_encode($subcategory);
+    // }
     
 }

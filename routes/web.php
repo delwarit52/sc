@@ -85,12 +85,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 
-    // Subcategory
-    // Route::get('/subcategory', [SubcategoryController::class, 'index'])->name('admin.subcategory');
-    // Route::post('/create/subcategory', [SubcategoryController::class, 'create'])->name('create.subcategory');
-    // Route::post('/update/subcategory/{subcategory}', [SubcategoryController::class, 'update'])->name('update.subcategory');
-    // Route::get('/delete/subcategory/{subcategory}', [SubcategoryController::class, 'delete'])->name('delete.subcategory');
-
 
     // Brand
     Route::get('/brand', [BrandController::class, 'index'])->name('admin.brand');
@@ -116,6 +110,7 @@ Route::middleware(['auth', 'shopadmin'])->group(function () {
     Route::post('/shop/update/{shop}', [ShopController::class, 'shopUpdate'])->name('shopadmin.update.shop');
     Route::get('/delete/shop/{shop}', [ShopController::class, 'delete'])->name('shopadmin.delete.shop');
 
+    
     //Product
     Route::get('/addproduct', [ProductController::class, 'addindex'])->name('product.add');
     Route::post('/addproduct/create', [ProductController::class, 'createproduct'])->name('product.create');
@@ -126,10 +121,22 @@ Route::middleware(['auth', 'shopadmin'])->group(function () {
 
     //Product details
 
-    Route::get('/addproduct/moredetails/', [ProductdetailController::class, 'detailCreate'])->name('product.moredetails');
-    Route::post('/product/moredetails/store', [ProductdetailController::class, 'detailStore'])->name('product.detail.store');
+
+    Route::get('/product/productdetail/', [ProductdetailController::class, 'detailCreate'])->name('product.moredetails');
+
+
+    // Route::get('/addproduct/moredetails/', [ProductdetailController::class, 'detailCreate'])->name('product.moredetails');
+    Route::post('/product/moredetails/store/{productdetail}', [ProductdetailController::class, 'detailStore'])->name('product.detail.store');
     Route::get('/product/moredetails/edit/{productdetail}', [ProductdetailController::class, 'detailEdit'])->name('product.detail.edit');
     Route::post('/product/moredetails/update/{productdetail}', [ProductdetailController::class, 'detailUpdate'])->name('product.detail.update');
     Route::get('/productlist/{id}', [ProductController::class, 'productlistsingleshop'])->name('product.productlistsingleshop');
     Route::get('/delete/productdetail/{productdetail}', [ProductdetailController::class, 'detailDelete'])->name('product.detail.delete');
+});
+
+
+// Route::get('/fetch-product_category/{id}', [ProductController::class,'fetchDist']);
+// Route::get('/fetch-product_subcategory/{id}', [ProductController::class,'fetchupzila']);
+
+Route::get('/phpinfo', function() {
+    return phpinfo();
 });

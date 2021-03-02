@@ -1,5 +1,6 @@
+@extends('admin.layouts.app')
 
-@extends('shopadmin.layouts.app')
+@section('title','Add product')
 @section('content')
 
 
@@ -136,16 +137,11 @@
                                 <div class="form-group row">
                                     <label class="col-2 col-form-label">Category</label>
                                     <div class="col-10">
-                                        <select class="form-control select-product_category_id @error('product_category_id') is-invalid  @enderror" name="product_category_id">
+                                        <select class="form-control @error('product_category_id') is-invalid  @enderror" name="product_category_id">
                                             @foreach($categories  as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
-                                        <script>
-                                            $(".select-product_category_id").select2({
-                                                tags:true
-                                            });
-                                        </script>
                                         @error('product_category_id')
                                             <span class="invalid-feedback text-danger" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -265,7 +261,43 @@
                 <!-- end row -->
             </div>
             <!-- end card-box -->
+    {{-- <script type="text/javascript">
+        $(document).ready(function(){
+            $('select[name="shop_id"]').on('change',function(){
+                var shop_id = $(this).val();
+                $.ajax({
+                    method:'GET',
+                    dataType:'json',
+                    url:'{{ url("/fetch-product_category/") }}/'+shop_id,
+                    success:function(data){
+                        var d = $('select[name = "product_category_id"]').empty();
+                        $('select[name = "product_category_id"]').append('<option>Select product_category</option>');
+                    $.each(data, function(key, value){
+                        $('select[name = "product_category_id"]').append('<option value="'+value.id+'">'+value.name+'</option>');
+                        });
+                        
+                    },
+                });
+            })
 
+            $('select[name="product_category_id"]').on('change',function(){
+                var product_category_id = $(this).val();
+                $.ajax({
+                    method:'GET',
+                    dataType:'json',
+                    url:'{{ url("/fetch-product_subcategory/") }}/'+product_category_id,
+                    success:function(data){
+                        var d = $('select[name = "product_subcategory_id"]').empty();
+                        $('select[name = "product_subcategory_id"]').append('<option>Select product_subcategory</option>');
+                    $.each(data, function(key, value){
+                        $('select[name = "product_subcategory_id"]').append('<option value="'+value.id+'">'+value.name+'</option>');
+                        });
+                        
+                    },
+                });
+            })
+        })
+    </script> --}}
 
 @endsection
 
