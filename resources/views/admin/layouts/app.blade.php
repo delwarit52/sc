@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Adminox - Responsive Web App Kit</title>
+    <title>SM Admin | Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -234,6 +234,7 @@
                                 <li><a href="{{ route('admin.category') }}">Category</a></li>
                                 <li><a href="{{ route('admin.subcategory') }}">Subcategory</a></li>
                                 <li><a href="{{ route('admin.division') }}">Division</a></li>
+                                <li><a href="{{ route('admin.district') }}">District</a></li>
                                 <li><a href="{{ route('admin.brand') }}">Brand</a></li>
                             </ul>
                         </li>
@@ -251,7 +252,7 @@
                             </a>
                             <ul class="nav-second-level" aria-expanded=false>
                                 <li><a href="{{ route('product.add') }}">Add Product</a></li>
-                                <li><a href="{{ route('product.productlist') }}">Product List</a></li>
+                                {{-- <li><a href="{{ route('product.productlist') }}">Product List</a></li> --}}
                             </ul>
                         </li>
                         <li>
@@ -295,7 +296,7 @@
             </div> <!-- content -->
         </div>
             <!-- FOOTER AREA START -->
-
+{{-- 
             <section class="sm_footer_area sm_section_padding" style="background-image: url('{{ asset('back/images/smartcityslide_3.jpg') }}');">
                 <div class="container">
                     <div class="row">
@@ -398,14 +399,14 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
             <!--===  Copyright Area start ===-->
             <section>
-                <div class="sm_copyright_area">
+                <div class="sm_copyright_area " style="text:center;">
                     <div class="container">
                         <div class="copyright text-center">
-                            <p>&copy; Copyright Reserved. <a href="#"> 2021 Smart City.</a></p>
+                            <p >&copy; Copyright Reserved. <a href="#"> 2021 Smart City.</a></p>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ use App\Models\Admin\Category;
 use App\Models\Shopadmin\Shop;
 use App\Models\Shopadmin\Product;
 use Auth;
+// use Image;
 
 class ShopController extends Controller
 {
@@ -203,6 +204,7 @@ class ShopController extends Controller
     		$shop->update([
     			'logo' => request()->logo->store('shopadmin/shop/logo','public'),
     		]);
+            
     	}
     	if (request()->has('cover_image')) {
             // if(request()->old_cover_image){
@@ -211,6 +213,8 @@ class ShopController extends Controller
     		$shop->update([
     			'cover_image' => request()->cover_image->store('shopadmin/shop/cover_image','public'),
     		]);
+            // $resize = Image::make('storage/app/public/'.$shop->cover_image)->resize(255,180);
+            // $resize->save();
     	}
     	if (request()->has('offer_image')) {
             // if(request()->old_offer_image){
@@ -219,6 +223,8 @@ class ShopController extends Controller
     		$shop->update([
     			'offer_image' => request()->offer_image->store('shopadmin/shop/offer_image','public'),
     		]);
+            // $resize = Image::make('storage/app/public/'.$shop->offer_image)->resize(275,160);
+            // $resize->save();
         }
         
     }
@@ -229,6 +235,9 @@ class ShopController extends Controller
             $shop->update([
                 'logo' => request()->logo->store('shopadmin/shop/logo','public'),
             ]);
+            // $resize = Image::make('storage/app/public/'.$shop->logo)->resize(255,180);
+            // $resize->save();
+
             if(request()->old_logo){
                 unlink('storage/'.request()->old_logo);
             }
@@ -239,6 +248,10 @@ class ShopController extends Controller
             $shop->update([
                 'cover_image' => request()->cover_image->store('shopadmin/shop/cover_image','public'),
             ]);
+
+            // $resize = Image::make('storage/app/public/'.$shop->cover_image)->resize(255,180);
+            // $resize->save();
+
             if(request()->old_cover_image){
                 unlink('storage/'.request()->old_cover_image);
             }
@@ -249,6 +262,10 @@ class ShopController extends Controller
             $shop->update([
                 'offer_image' => request()->offer_image->store('shopadmin/shop/offer_image','public'),
             ]);
+            
+            // $resize = Image::make('storage/app/public/'.$shop->offer_image)->resize(255,180);
+            // $resize->save();
+
             if(request()->old_offer_image){
                 unlink('storage/'.request()->old_offer_image);
             }

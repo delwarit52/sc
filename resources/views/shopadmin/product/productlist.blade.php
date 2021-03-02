@@ -1,4 +1,4 @@
-@extends('shopadmin.layouts.app')
+@extends('admin.layouts.app')
 @section('content')
 
     <!-- BREADCRUMB-->

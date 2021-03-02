@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Shopadmin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Shopadmin\Productdetail;
+use Session;
 
 class ProductdetailController extends Controller
 {
     public function detailCreate()
     {
-        return view('shopadmin.product.addproductmoredetails');
+        return view('shopadmin.product.productdetail.productdetail_create');
     }
     public function detailStore(Request $request)
     {
@@ -18,12 +19,14 @@ class ProductdetailController extends Controller
         
         $productdetail = Productdetail::create($this->validateRequest());
         $this->storeImage($productdetail);
+		Session::forget('product_id');
+
         if($productdetail){
     		$notification = array(
 	            'messege' => 'Product added Successful',
 	            'alert-type' => 'success',
 	        );
-            return redirect()->route('product.productlistsingleshop')->with($notification);;
+            return redirect('shop/list')->with($notification);;
     	}else{
     		$notification = array(
 	            'messege' => 'Ups..Product not Added',
@@ -60,7 +63,7 @@ class ProductdetailController extends Controller
 	            'messege' => 'Ups..Product not Added',
 	            'alert-type' => 'error',
 	        );
-	        return redirect()->back()->with($notification);
+	        return redirect()->route()->with($notification);
     	}
         
         
